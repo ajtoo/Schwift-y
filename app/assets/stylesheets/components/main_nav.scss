@@ -1,0 +1,73 @@
+.top-nav {
+  background: $shift-grey;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  justify-content: space-between;
+  width: 100%; 
+}
+
+.left-pulled {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+  margin-left: 20px;
+}
+
+.left-pulled li {
+  align-items: center;
+  display: flex;
+  color: white;
+  font-family: $shift-font;
+  margin: 10px;
+}
+
+.left-pulled li span {
+  margin-right: 10px;
+}
+
+.location-dropdown {
+  position: absolute;
+  background: white;
+  border: 1px solid rgba(190,190,190,.4);
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px 0 rgba(66,66,66,.1);
+  font-family: $shift-font;
+  font-size: 15px;
+  top: 45px;
+  left: 175px;
+  visibility: hidden;
+}
+
+.location-dropdown li {
+  color: black;
+  font-size: 12px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+.nav-logo{
+  color: white;
+  font-family: $shift-font;
+  font-size: 1.5em;
+  font-style: italic;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.nav-logo:hover{
+  color: white;
+  text-decoration: none;
+}
+
+.right-pulled{
+  align-items: center;
+  color: white;
+  display: flex;
+  font-family: $shift-font;
+  margin-right: 20px;
+}
+
+.right-pulled li {
+  margin: 10px
+}
