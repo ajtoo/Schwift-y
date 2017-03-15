@@ -8,7 +8,15 @@ import {signup, login, logout} from './util/session_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.getElementById('root');
-    const store = configureStore();
+    
+    let store;
+    if (window.currentUser) {
+        const preloadedState = { session: { currentUser: window.currentUser } };
+        store = configureStore(preloadedState);
+    } else {
+        store = configureStore();
+    }
+
     //TODO: take testing items off window
     window.signup = signup;
     window.login = login;
