@@ -3,7 +3,7 @@ import MainNavContainer from './shared/main_nav_container';
 
 const App = ({ children }) => (
   <div>
-    <MainNav></MainNav>
+    <MainNavContainer></MainNavContainer>
     { children }
   </div>
 );
