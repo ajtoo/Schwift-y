@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {Router, Route, Redirect, IndexRoute, IndexRedirect, hashHistory} from 'react-router';
 import App from './app';
-// import SessionFormContainer from './session_form/session_form';
+import SessionFormContainer from './session_form/session_form';
 import {logout} from '../actions/session_actions';
 // import * as SessionApi from '../util/session_api_util';
 
@@ -19,12 +19,9 @@ const Root = ({store}) => (
           <Route path="San-Diego"/>
           <Route path="Washington-DC"/>
         </Route>
-        <Route path="login">
-        </Route>
-        <Route path="logout" onEnter={() => logout()(store.dispatch).then(() => hashHistory.push('/cars')) }>
-        </Route>
+        <Route path="login" component={SessionFormContainer}/>
+        <Route path="logout" onEnter={() => logout()(store.dispatch).then(() => hashHistory.push('/cars')) }/>
       </Route>
-      
     </Router>
   </Provider>
 );
