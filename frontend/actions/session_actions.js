@@ -10,7 +10,7 @@ export const login = user => dispatch => (
 );
 
 export const logout = () => dispatch => (
-  SessionApi.login().then(user => dispatch(receiveLogout(user)),
+  SessionApi.logout().then(user => dispatch(receiveLogout()),
                           err => dispatch(receiveErrors(err.responseJSON)))
 );
 

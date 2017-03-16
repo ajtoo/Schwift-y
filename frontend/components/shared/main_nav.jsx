@@ -8,7 +8,7 @@ function toggleDropdown(e) {
   } else {
     dropdown.style = "visibiity: hidden";
   }
-  dropdownSelection.text = getLocation();
+  // dropdownSelection.text = getLocation();
 }
 
 function getLocation() {
@@ -19,6 +19,22 @@ function getLocation() {
   return location;
 }
 
+function getSessionMessage() {
+  let user = window.store.getState().session.currentUser;
+  if(user)
+    return "Log Out";
+  else
+    return "Log In"
+}
+
+function getSessionLink() {
+  let user = window.store.getState().session.currentUser;
+  if(user)
+    return "#/logout";
+  else
+    return "#/login"
+}
+
 function MainNav(props) {
   let location = getLocation();
   return(
@@ -27,7 +43,7 @@ function MainNav(props) {
       <li><a className="nav-logo" href="#">Schwifty</a></li>
       <li onClick={toggleDropdown}>
         <span id="dropdown-selection">
-          {location}
+          {getLocation()}
         </span>
         <img src="http://res.cloudinary.com/ajtoo/image/upload/c_scale,w_18/v1489616194/schwifty_arrow_white_down_ufsau1.png"/>
       </li>
@@ -45,7 +61,7 @@ function MainNav(props) {
     </ul>
     <ul className="right-pulled">
       <li><img src="http://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>
-      <li><a href="#/login">Login</a></li>
+      <li><a href={getSessionLink()}>{getSessionMessage()}</a></li>
     </ul>
   </nav>
   );

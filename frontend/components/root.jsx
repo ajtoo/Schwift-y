@@ -1,7 +1,10 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {Router, Route, IndexRoute, IndexRedirect, hashHistory} from 'react-router';
+import {Router, Route, Redirect, IndexRoute, IndexRedirect, hashHistory} from 'react-router';
 import App from './app';
+// import SessionFormContainer from './session_form/session_form';
+import {logout} from '../actions/session_actions';
+// import * as SessionApi from '../util/session_api_util';
 
 const Root = ({store}) => (
   <Provider store={store}>
@@ -17,6 +20,9 @@ const Root = ({store}) => (
           <Route path="Washington-DC"/>
         </Route>
         <Route path="login">
+        </Route>
+        <Route path="logout">
+          <Redirect to="/cars"/>
         </Route>
       </Route>
       
