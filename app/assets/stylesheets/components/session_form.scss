@@ -1,6 +1,20 @@
 .form-title {
   margin-top: 10%;
 }
+
+.login-button {
+  background: $button-red;
+  border: 1px solid $button-outline-red;
+  border-radius: 3px;
+  font-size: 15px;
+  height: 35px;
+  width: 240px;
+}
+
+.login-button:hover {
+  background: $mouseover-red
+}
+
 .session-form-root {
   align-items: center;
   display: flex;

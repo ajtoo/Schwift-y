@@ -8,12 +8,11 @@ class SessionForm extends React.Component {
       email: "",
       password: ""
     };
-    console.log(this);
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleLogin = this.handleLogin.bind(this);
   }
 
-  componentDidUpdate() {
+  componentDidMount() {
 		this.redirectIfLoggedIn();
 	}
 
@@ -34,8 +33,7 @@ class SessionForm extends React.Component {
 
   handleLogin(e) {
     e.preventDefault();
-    console.log(this.props);
-    this.props.loginAction(this.state);
+    this.props.login(this.state).then(() => this.props.router.push("/"));
   }
 
   render() {
@@ -45,7 +43,7 @@ class SessionForm extends React.Component {
         <form className="session-form">
           <input onChange={this.handleTextChange('email')} className="session-input" type="email" value={this.state.email} placeholder="Email"/>
           <input onChange={this.handleTextChange('password')} className="session-input" type="password" value={this.state.password} placeholder="Password"/>
-          <button onClick={this.handleLogin.bind(this)}>Log In</button>
+          <button className="login-button" onClick={this.handleLogin.bind(this)}>Log In</button>
         </form>
       </div>
     );

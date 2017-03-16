@@ -2,7 +2,7 @@ import React from 'react';
 import {Provider} from 'react-redux';
 import {Router, Route, Redirect, IndexRoute, IndexRedirect, hashHistory} from 'react-router';
 import App from './app';
-import SessionFormContainer from './session_form/session_form';
+import SessionFormContainer from './session_form/session_form_container';
 import {logout} from '../actions/session_actions';
 // import * as SessionApi from '../util/session_api_util';
 
