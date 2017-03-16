@@ -14,12 +14,17 @@
   margin-left: 20px;
 }
 
-.left-pulled li {
+.left-pulled li, .right-pulled li {
   align-items: center;
   display: flex;
   color: white;
   font-family: $shift-font;
-  margin: 10px;
+  margin: 5px 10px;
+  cursor: pointer;
+}
+
+.left-pulled li ul li:hover, .right-pulled li ul li:hover {
+  color: $mouseover-red;
 }
 
 .left-pulled li span {
@@ -27,13 +32,16 @@
 }
 
 .location-dropdown {
-  position: absolute;
+  display: flex;
   background: white;
   border: 1px solid rgba(190,190,190,.4);
   border-radius: 3px;
   box-shadow: 1px 1px 10px 0 rgba(66,66,66,.1);
+  flex-direction: column;
   font-family: $shift-font;
   font-size: 15px;
+  justify-content: center;
+  position: absolute;
   top: 45px;
   left: 175px;
   visibility: hidden;
@@ -66,8 +74,4 @@
   display: flex;
   font-family: $shift-font;
   margin-right: 20px;
-}
-
-.right-pulled li {
-  margin: 10px
 }

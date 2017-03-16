@@ -1,25 +1,25 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {Router, Route, IndexRoute, hashHistory} from 'react-router';
+import {Router, Route, IndexRoute, IndexRedirect, hashHistory} from 'react-router';
 import App from './app';
 
 const Root = ({store}) => (
   <Provider store={store}>
     <Router history={hashHistory}>
       <Route path="/" component={App}>
-        <Route path="/San-Francisco">
+        <IndexRedirect to="/cars"/>
+        <Route path="cars">
+          <Route path="San-Francisco"/>
+          <Route path="Los-Angeles"/>
+          <Route path="Orange-County"/>
+          <Route path="Sacramento"/>
+          <Route path="San-Diego"/>
+          <Route path="Washington-DC"/>
         </Route>
-        <Route path="/Los-Angeles">
-        </Route>
-        <Route path="/Orange-County">
-        </Route>
-        <Route path="/Sacramento">
-        </Route>
-        <Route path="/San-Diego">
-        </Route>
-        <Route path="/Washington-DC">
+        <Route path="login">
         </Route>
       </Route>
+      
     </Router>
   </Provider>
 );
