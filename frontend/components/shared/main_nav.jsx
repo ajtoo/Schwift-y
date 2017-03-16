@@ -34,7 +34,6 @@ function getSessionLink(loggedIn) {
 }
 
 function MainNav(props) {
-  console.log(props);
   let location = getLocation();
   return(
   <nav className="top-nav">

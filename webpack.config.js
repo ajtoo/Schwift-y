@@ -23,7 +23,7 @@ var config = {
       }
     ]
   },
-  devtool: 'source-maps',
+  devtool: 'source-map',
   resolve: {
     extensions: ['*', '.js', '.jsx' ]
   }
