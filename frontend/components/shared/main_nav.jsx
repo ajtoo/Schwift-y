@@ -44,7 +44,7 @@ function MainNav(props) {
         <span id="dropdown-selection">
           {getLocation()}
         </span>
-        <img src="http://res.cloudinary.com/ajtoo/image/upload/c_scale,w_18/v1489616194/schwifty_arrow_white_down_ufsau1.png"/>
+        <img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_18/v1489616194/schwifty_arrow_white_down_ufsau1.png"/>
       </li>
       <li>
         <ul className="location-dropdown" onClick={toggleDropdown}>
@@ -59,7 +59,7 @@ function MainNav(props) {
       </li>
     </ul>
     <ul className="right-pulled">
-      <li><img src="http://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>
+      <li><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>
       <li><a href={getSessionLink()}>{getSessionMessage()}</a></li>
     </ul>
   </nav>
