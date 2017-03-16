@@ -18,6 +18,7 @@ function getLocation() {
   return location;
 }
 
+//TODO: get off of window.store
 function getSessionMessage() {
   let user = window.store.getState().session.currentUser;
   if(user)
@@ -35,6 +36,7 @@ function getSessionLink() {
 }
 
 function MainNav(props) {
+  console.log(props);
   let location = getLocation();
   return(
   <nav className="top-nav">
