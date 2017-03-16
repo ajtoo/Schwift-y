@@ -23,14 +23,14 @@ function getSessionMessage(loggedIn) {
   if(loggedIn)
     return "Log Out";
   else
-    return "Log In"
+    return "Log In/Sign Up";
 }
 
 function getSessionLink(loggedIn) {
   if(loggedIn)
     return "#/logout";
   else
-    return "#/login"
+    return "#/login";
 }
 
 function MainNav(props) {
