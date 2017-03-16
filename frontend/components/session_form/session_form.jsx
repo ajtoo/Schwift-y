@@ -36,14 +36,21 @@ class SessionForm extends React.Component {
     this.props.login(this.state).then(() => this.props.router.push("/"));
   }
 
+  handleSignUp(e) {
+    e.preventDefault();
+    this.props.signup(this.state).then(() => this.props.router.push("/"));
+  }
+
   render() {
     return(
       <div className="session-form-root">
         <h1 className="form-title">Get Schwifty!</h1>
+        <p className="demo"> [demo] email: demo@gmail.com, password: 1234567890 </p>
         <form className="session-form">
           <input onChange={this.handleTextChange('email')} className="session-input" type="email" value={this.state.email} placeholder="Email"/>
           <input onChange={this.handleTextChange('password')} className="session-input" type="password" value={this.state.password} placeholder="Password"/>
           <button className="login-button" onClick={this.handleLogin.bind(this)}>Log In</button>
+          <button className="signup-button" onClick={this.handleSignUp.bind(this)}>Sign up with the above credentials</button>
         </form>
       </div>
     );
