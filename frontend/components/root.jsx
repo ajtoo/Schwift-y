@@ -21,8 +21,7 @@ const Root = ({store}) => (
         </Route>
         <Route path="login">
         </Route>
-        <Route path="logout">
-          <Redirect to="/cars"/>
+        <Route path="logout" onEnter={() => logout()(store.dispatch).then(() => hashHistory.push('/cars')) }>
         </Route>
       </Route>
       

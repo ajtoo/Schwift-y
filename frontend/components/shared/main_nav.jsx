@@ -8,7 +8,6 @@ function toggleDropdown(e) {
   } else {
     dropdown.style = "visibiity: hidden";
   }
-  // dropdownSelection.text = getLocation();
 }
 
 function getLocation() {
