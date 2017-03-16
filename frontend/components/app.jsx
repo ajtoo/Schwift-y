@@ -1,9 +1,9 @@
 import React from 'react';
-import MainNav from './shared/main_nav';
+import MainNavContainer from './shared/main_nav_container';
 
 const App = ({ children }) => (
   <div>
-    <MainNav></MainNav>
+    <MainNavContainer></MainNavContainer>
     { children }
   </div>
 );

@@ -18,23 +18,23 @@ function getLocation() {
   return location;
 }
 
-function getSessionMessage() {
-  let user = window.store.getState().session.currentUser;
-  if(user)
+//TODO: get off of window.store
+function getSessionMessage(loggedIn) {
+  if(loggedIn)
     return "Log Out";
   else
     return "Log In"
 }
 
-function getSessionLink() {
-  let user = window.store.getState().session.currentUser;
-  if(user)
+function getSessionLink(loggedIn) {
+  if(loggedIn)
     return "#/logout";
   else
     return "#/login"
 }
 
 function MainNav(props) {
+  console.log(props);
   let location = getLocation();
   return(
   <nav className="top-nav">
@@ -60,7 +60,7 @@ function MainNav(props) {
     </ul>
     <ul className="right-pulled">
       <li><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>
-      <li><a href={getSessionLink()}>{getSessionMessage()}</a></li>
+      <li><a href={getSessionLink(props.loggedIn)}>{getSessionMessage(props.loggedIn)}</a></li>
     </ul>
   </nav>
   );
