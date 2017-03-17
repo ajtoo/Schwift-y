@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link, hashHistory} from 'react-router';
 
 //TODO: change from <a> tags to 
 class MainNav extends React.Component {
@@ -19,14 +19,29 @@ class MainNav extends React.Component {
 
   selectItem(e) {
     let location = e.target.innerHTML;
+    let dropdownSelection = document.querySelector("#dropdown-selection");
+
     if(location === "All"){
-      document.querySelector("#dropdown-selection").innerHTML = "Location";
+      dropdownSelection.innerHTML = "Location";
       this.toggleDropdown();
+      if("cars" !== window.location.hash.slice(2))
+        hashHistory.push("cars");
     } 
     else{
-      console.log(e.target.innerHTML)
-      document.querySelector("#dropdown-selection").innerHTML = e.target.innerHTML;
+      dropdownSelection.innerHTML = location.toString();
       this.toggleDropdown();
+      this.switchHashLocation(location);
+    }
+  }
+
+  switchHashLocation(location) {
+    if(location === "Washington D.C.") {
+      if("cars/Washington-DC" !== window.location.hash.slice(2))
+        hashHistory.push("cars/Washington-DC");
+    } else {
+      let hashAddress = "cars/" + location.replace(" ", "-");
+      if(hashAddress !== window.location.hash.slice(2))
+        hashHistory.push(hashAddress)
     }
   }
 
@@ -39,7 +54,6 @@ class MainNav extends React.Component {
   }
 
   render() {
-    console.log("rendering");
     return(
     <nav className="top-nav">
       <ul className="left-pulled">
@@ -52,13 +66,13 @@ class MainNav extends React.Component {
         </li>
         <li>
           <ul className="location-dropdown">
-            <a to="cars" onClick={this.selectItem}><li>All</li></a>
-            <a to="cars/San-Francisco" onClick={this.selectItem}><li>San Francisco</li></a>
-            <a to="cars/Los-Angeles"onClick={this.selectItem}><li>Los Angeles</li></a>
-            <a to="cars/Orange-County" onClick={this.selectItem}><li>Orange County</li></a>
-            <a to="cars/Sacramento" onClick={this.selectItem}><li>Sacramento</li></a>
-            <a to="cars/San-Diego" onClick={this.selectItem}><li>San Diego</li></a>
-            <a to="cars/Washington-DC" onClick={this.selectItem}><li>Washington D.C.</li></a>
+            <li onClick={this.selectItem}>All</li>
+            <li onClick={this.selectItem}>San Francisco</li>
+            <li onClick={this.selectItem}>Los Angeles</li>
+            <li onClick={this.selectItem}>Orange County</li>
+            <li onClick={this.selectItem}>Sacramento</li>
+            <li onClick={this.selectItem}>San Diego</li>
+            <li onClick={this.selectItem}>Washington D.C.</li>
           </ul>
         </li>
       </ul>
