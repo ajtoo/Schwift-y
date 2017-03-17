@@ -1,10 +1,8 @@
 .demo {
-  color: $inactive-red;
-  font-size: 11px;
-}
-
-.demo:hover {
   color: $button-outline-red;
+  font-size: 11px;
+  font-weight: bold;
+  margin-bottom: 3px;
 }
 
 .form-title {
@@ -17,11 +15,17 @@
   border-radius: 3px;
   font-size: 15px;
   height: 35px;
+  margin-bottom: 25px;
   width: 240px;
 }
 
 .login-button:hover {
   background: $mouseover-red
+}
+
+.session-buttons {
+  display: flex;
+  flex-direction: column;
 }
 
 .session-form-root {
@@ -50,15 +54,16 @@
 }
 
 .signup-button {
-  background: transparent;
-  border: 0;
-  color: $inactive-red;
-  font-size: 12px;
-  font-weight: bold;
+  background: $inactive-red;
+  border: 1px solid $inactive-red;
+  border-radius: 3px;
+  color: rgba(0,0,0,0.25);
+  font-size: 15px;
   height: 35px;
   width: 240px;
 }
 
 .signup-button:hover {
-  color: $button-outline-red;
+  color: black;
+  background: $button-red;
 }

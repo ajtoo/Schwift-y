@@ -1,4 +1,54 @@
+.dropdown-arrow{
+  margin: 0 10px;
+  width: 12px;
+}
+
+.order-selection{
+  align-items: center;
+  display: flex;
+  font-size: 12px;
+  flex-direction: row;
+}
+
+.order-selection > span {
+  color: $shift-grey;
+}
+
+.result-view {
+  flex: 1;
+  width: 100%;
+}
+
+.search-bar {
+  align-items: center;
+  border-bottom: 1px solid $form-outline;
+  display: flex;
+  flex-direction: row;
+  height: 70px;
+  width: 100%;
+}
+
+.search-icon {
+  width: 44px;
+}
+
+.search-input{
+  width: 100%;
+}
+
+.search-root {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  font-family: $shift-font;
+}
+
 .search-sidebar {
+  border-right: 1px solid $form-outline;
   width: 250px;
+}
+
+.search-view {
   height: 100%;
+  width: 100%;
 }
