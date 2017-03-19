@@ -39,8 +39,9 @@
   box-shadow: 1px 1px 10px 0 rgba(66,66,66,.1);
   flex-direction: column;
   font-family: $shift-font;
-  font-size: 15px;
+  height: 275px;
   justify-content: center;
+  padding: 15px;
   position: absolute;
   top: 45px;
   left: 175px;
@@ -48,8 +49,11 @@
 }
 
 .location-dropdown li {
-  color: black;
-  font-size: 12px;
+  color: $shift-grey;
+  font-size: 15px;
+  padding: 10px 3px;
+  margin: 3px 0;
+  width: 142px;
 }
 
 .hidden {
