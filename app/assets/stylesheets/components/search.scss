@@ -3,10 +3,80 @@
   width: 12px;
 }
 
+.filter-label {
+  font-size: 16px;
+  border-bottom: 1px solid $form-outline;
+  padding: 20px 0;
+  margin: 0 20px;
+}
+.filters-button {
+  background: $button-red;
+  border: 1px solid $button-outline-red;
+  border-radius: 3px;
+  color: white;
+  font-size: 12px;
+  margin-top: 10px;
+  height: 40px;
+  width: 220px;
+}
+
+.filters-form {
+  color: $shift-grey;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  flex: 1;
+}
+
+.filters-scroll {
+  display: flex;
+  flex-direction: column;
+  height: 486px;
+  overflow: scroll;
+}
+.filters-title {
+  line-height: 27px;
+  margin-top: 15px;
+  padding: 13px 5px 10px 20px;
+  width: 227px;
+}
+
+.order-dropdown {
+  align-content: space-around;
+  display: flex;
+  background: white;
+  border: 1px solid rgba(190,190,190,.4);
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px 0 rgba(66,66,66,.1);
+  flex-direction: column;
+  font-family: $shift-font;
+  height: 172;
+  justify-content: center;
+  padding: 15px;
+  position: absolute;
+  right: 10px;
+  top: 105px;
+  visibility: hidden;
+}
+
+.order-dropdown li {
+  color: $shift-grey;
+  font-size: 15px;
+  padding: 10px 3px;
+  margin: 3px 0;
+  width: 82px;
+}
+
+.order-dropdown li:hover {
+  color: $mouseover-red;
+}
+
 .order-selection{
   align-items: center;
+  color: $shift-grey;
+  cursor: pointer;
   display: flex;
-  font-size: 12px;
   flex-direction: row;
 }
 
@@ -29,7 +99,8 @@
 }
 
 .search-icon {
-  width: 44px;
+  color: $shift-grey;
+  margin: 0 5px;
 }
 
 .search-input{
@@ -51,4 +122,71 @@
 .search-view {
   height: 100%;
   width: 100%;
+}
+
+.slider-group {
+  align-content: space-around;
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  margin: 10px 0 15px 0;
+}
+
+.slider-group-range {
+  margin: 0 0 0 20px;
+  width: 200px;
+}
+
+.slider-group-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid $form-outline;
+  height: 20px;
+  width: 30px;
+  border-radius: 14px;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: -10px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+}
+.slider-group-range::-moz-range-thumb {
+  border: 1px solid $form-outline;
+  height: 20px;
+  width: 30px;
+  border-radius: 14px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.slider-group-range::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: black;
+  border-radius: 1px;
+  border: 1px solid #010101;
+}
+
+.slider-group-range::-moz-range-track{
+  width: 100%;
+  height: 1px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: black;
+  border-radius: 1px;
+  border: 1px solid #010101;
+}
+
+.slider-group-range:focus::-webkit-slider-runnable-track {
+  background: black;
+}
+
+.slider-label {
+  font-size: 16px;
+  border-bottom: 1px $underline-grey;
+  margin: 0 20px;
+}
+
+.value-label {
+  font-size: 20px;
+  margin: 10px 20px 10px;
 }

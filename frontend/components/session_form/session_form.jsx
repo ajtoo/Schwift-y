@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router';
 
+//TODO: add button to log demo acct in
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
