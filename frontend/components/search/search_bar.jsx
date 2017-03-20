@@ -19,6 +19,8 @@ class OrderDropdown extends React.Component{
 
   toggleDropdown() {
     let dropdown = document.querySelector(".order-dropdown");
+
+    //toggle visibility of the dropdown
     if(dropdown.style.visibility !== "visible") {
       dropdown.style.visibility = "visible";
     } else {
@@ -47,17 +49,3 @@ class OrderDropdown extends React.Component{
 }
 
 export default SearchBar;
-
-/*
-      <li>
-        <ul className="order-dropdown">
-          <li onClick={() => {}}>All</li>
-          <li onClick={() => {}}>San Francisco</li>
-          <li onClick={() => {}}>Los Angeles</li>
-          <li onClick={() => {}}>Orange County</li>
-          <li onClick={() => {}}>Sacramento</li>
-          <li onClick={() => {}}>San Diego</li>
-          <li onClick={() => {}}>Washington D.C.</li>
-        </ul>
-      </li>
-*/
