@@ -13,6 +13,11 @@
   padding: 20px 0;
 }
 
+.filters {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
 .filters-button {
   background: $button-red;
   border: 1px solid $button-outline-red;
@@ -116,8 +121,15 @@
 }
 
 .result-view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.results {
+  display: flex;
   flex: 1;
-  width: 100%;
 }
 
 .search-bar {
@@ -153,6 +165,8 @@
 }
 
 .search-view {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
 }

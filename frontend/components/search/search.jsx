@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router';
 import SearchBar from './search_bar';
 import SearchFilters from './search_filters';
+import CarCard from './car_card';
 
 class SearchView extends React.Component {
   constructor(props) {
@@ -13,6 +14,11 @@ class SearchView extends React.Component {
   //TODO: table for veiwing car cards
     //TODO: make car cards
   render() {
+    let results = [];
+    for(let i = 0; i < 8; ++i) {
+      results.push(<CarCard/>);
+    }
+
     return(
       <div className="search-root">
         <aside className="search-sidebar">
@@ -20,7 +26,11 @@ class SearchView extends React.Component {
         </aside>
         <main  className="search-view">
           <SearchBar/>
-          <table className="result-view"></table>
+          <div className="results">
+            <section className="result-view">
+              {results}
+            </section>
+          </div>
         </main>
       </div>
     );

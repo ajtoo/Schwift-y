@@ -23,10 +23,12 @@ function FilterScrollView(props) {
     <div className="filters-scroll">
       <SliderGroup label="Max Price" unit="$" max="80"/>
       <SliderGroup label="Max Mileage" max="80"/>
-      <FilterDropdown title="Body Style" options={bodyOptions}/>
-      <FilterDropdown title="Make" options={makeOptions}/>
-      <FilterDropdown title="Transmission" options={transmissionOptions}/>
-      <FilterDropdown title="Drivetrain" options={makeOptions}/>
+      <div className="filters">
+        <FilterDropdown title="Body Style" options={bodyOptions}/>
+        <FilterDropdown title="Make" options={makeOptions}/>
+        <FilterDropdown title="Transmission" options={transmissionOptions}/>
+        <FilterDropdown title="Drivetrain" options={makeOptions}/>
+      </div>
     </div>
   );
 }
