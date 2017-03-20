@@ -13,10 +13,10 @@ class FilterDropdown extends React.Component{
     //give make dropdown visible & apply height to bump other items down
     if(dropdown.style.height !== "auto") {
       dropdown.style.height = "auto";
-      dropdown.style.visibility = "visible";
+      dropdown.style.display = "block";
     } else {
       dropdown.style.height = 0;
-      dropdown.style.visibility = "hidden";
+      dropdown.style.display = "none";
       console.log(dropdown.style.height);
     }
   }

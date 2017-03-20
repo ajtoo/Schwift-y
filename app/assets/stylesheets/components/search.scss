@@ -49,7 +49,7 @@
 }
 
 .filters-dropdown-list {
-  visibility: hidden;
+  display: none;
   height: 0;
 }
 
@@ -124,11 +124,12 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 .results {
   display: flex;
+  overflow-x: visible;
   flex: 1;
 }
 
