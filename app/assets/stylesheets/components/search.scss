@@ -3,21 +3,63 @@
   width: 12px;
 }
 
+/* ---- CSS for the SideBar ---- */
+
 .filter-label {
-  font-size: 16px;
   border-bottom: 1px solid $form-outline;
-  padding: 20px 0;
+  cursor: pointer;
+  font-size: 16px;
   margin: 0 20px;
+  padding: 20px 0;
 }
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .filters-button {
   background: $button-red;
   border: 1px solid $button-outline-red;
   border-radius: 3px;
   color: white;
   font-size: 12px;
-  margin-top: 10px;
+  margin: 10px 15px 20px 15px;
   height: 40px;
   width: 220px;
+}
+
+.filters-clear {
+  color: $button-outline-red;
+  cursor: pointer;
+  line-height: 27px;
+  margin-top: 15px;
+  padding: 13px 5px 10px 20px;
+}
+
+.filters-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.filters-dropdown-option {
+  background: $form-background;
+  border-bottom: 1px solid $form-outline;
+  cursor: pointer;
+  padding: 13px 20px;
+  margin: 0 20px;
+}
+
+.filters-dropdown-option:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.filters-dropdown-list {
+  display: none;
+  height: 0;
 }
 
 .filters-form {
@@ -29,18 +71,26 @@
   flex: 1;
 }
 
+.filters-header {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+}
+
 .filters-scroll {
   display: flex;
   flex-direction: column;
-  height: 486px;
+  flex: 1;
   overflow: scroll;
 }
 .filters-title {
   line-height: 27px;
   margin-top: 15px;
   padding: 13px 5px 10px 20px;
-  width: 227px;
 }
+
+/* ----- SliderGroup CSS ---- */
 
 .order-dropdown {
   align-content: space-around;
@@ -85,8 +135,16 @@
 }
 
 .result-view {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+}
+
+.results {
+  display: flex;
+  overflow: visible;
   flex: 1;
-  width: 100%;
 }
 
 .search-bar {
@@ -94,7 +152,9 @@
   border-bottom: 1px solid $form-outline;
   display: flex;
   flex-direction: row;
-  height: 70px;
+  justify-content: space-between;
+  filter: opacity(20%);
+  height: 70px; 
   width: 100%;
 }
 
@@ -104,7 +164,8 @@
 }
 
 .search-input{
-  width: 100%;
+  display: flex;
+  flex: 1;
 }
 
 .search-root {
@@ -115,21 +176,27 @@
 }
 
 .search-sidebar {
+  align-content: space-between;
   border-right: 1px solid $form-outline;
+  display: flex;
   width: 250px;
 }
 
 .search-view {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   width: 100%;
 }
+
+/* ----- SliderGroup CSS ---- */
 
 .slider-group {
   align-content: space-around;
   display: flex;
   flex-direction: column;
   font-size: 20px;
-  margin: 10px 0 15px 0;
+  margin: 10px 0 30px 0;
 }
 
 .slider-group-range {

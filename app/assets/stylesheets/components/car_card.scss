@@ -1,0 +1,65 @@
+//TODO: set width allocation based on screen ::-webkit-resize
+//TODO: actually get that 1px border in $form-outline color
+.car-card {
+  background: white;
+  border: 1px solid $underline-grey;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: -1px -1px 0 -1px;
+  transition: all .2s ease-in-out;
+  width: 25%;
+}
+
+.car-card:hover {
+  transform: scale(1.05);
+  box-shadow: 1px 1px 10px 0 rgba(66,66,66,.1);
+}
+
+.car-card-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 13px;
+  padding: 0 20px 25px 20px;
+}
+
+.car-card-heart {
+ background-image: url("https://res.cloudinary.com/ajtoo/image/upload/v1489615610/schwifty_icon_favorite_grey_border_xwsscs.png"); 
+ background-size: 20px;
+ background-position: center;
+ background-repeat: no-repeat;
+ padding: 10px;
+ position: relative; 
+ width: 20px;
+ height: 20px;
+}
+
+.car-card-img {
+  width: 100%;
+}
+.car-card-heart:hover {
+  background-image: url("https://res.cloudinary.com/ajtoo/image/upload/v1489615610/schwifty_icon_favorite_red_border_bgt1wl.png"); 
+  width: 21px;
+  height: 21px;
+}
+
+.car-card-miles {
+  margin: 0 0 0 10px;
+}
+
+.car-card-name {
+  margin: 0 0 10px 20px;
+  font-size: 15px;
+}
+
+.car-card-price {
+  font-size: 18px;
+}
+
+.car-card-year {
+  border: 1px solid $form-outline;
+  border-radius: 2px;
+  padding: 2px 5px;
+}

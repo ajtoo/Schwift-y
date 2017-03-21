@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link, hashHistory} from 'react-router';
 
-//TODO: change from <a> tags to 
 class MainNav extends React.Component {
   constructor(props) {
     super(props);
@@ -77,7 +76,7 @@ class MainNav extends React.Component {
         </li>
       </ul>
       <ul className="right-pulled">
-        <li><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>
+        {/*<li><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>*/}
         <li><Link to={this.props.loggedIn ? "logout" : "login"}>{this.props.loggedIn ? "Log Out" : "Log In/Sign Up"}</Link></li>
       </ul>
     </nav>
