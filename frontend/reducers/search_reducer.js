@@ -1,6 +1,13 @@
-import {RECEIVE_CARS, 
-        RECEIVE_MILE_LIMIT, 
-        RECEIVE_PRICE_LIMIT} from '../actions/search_actions';
+import {
+  RECEIVE_CARS, 
+  REMOVE_FILTERS,
+  RECEIVE_MILE_LIMIT, 
+  RECEIVE_PRICE_LIMIT,
+  RECEIVE_BODY_STYLE,
+  RECEIVE_MAKE,
+  RECEIVE_TRANSMISSION,
+  RECEIVE_DRIVETRAIN
+      } from '../actions/search_actions';
 import merge from 'lodash/merge';
 
 const _nullSearch = Object.freeze({
@@ -19,6 +26,11 @@ const SearchReducer = (state = _nullSearch, action) => {
     case RECEIVE_CARS:
       newState = merge({}, newState, {foundCars: action.cars});
       return newState;
+    case REMOVE_FILTERS:
+      if(action.target === "all") {
+        newState = merge({}, _nullSearch, {foundCars: newState.foundCars});
+      }
+      return newState;
     case RECEIVE_PRICE_LIMIT:
       newState = merge({}, newState, {maxPrice: Number(action.limit) * 1000});
       return newState;
@@ -26,12 +38,27 @@ const SearchReducer = (state = _nullSearch, action) => {
       newState = merge({}, newState, {maxMiles: Number(action.limit) * 1000});
       return newState;
     case RECEIVE_BODY_STYLE:
-      if(!stateHasValue(newState.make, action.body)) {
-        newState = merge({}, newState, {body: [].concat(newState.make, [action.body])});
+      if(!stateHasValue(newState.body, action.body)) {
+        newState = merge({}, newState, {body: [].concat(newState.body, [action.body])});
+      }
+      return newState;
+    case RECEIVE_MAKE:
+      if(!stateHasValue(newState.make, action.make)) {
+        newState = merge({}, newState, {make: [].concat(newState.make, [action.make])});
+      }
+      return newState;
+    case RECEIVE_TRANSMISSION:
+      if(!stateHasValue(newState.transmission, action.transmission)) {
+        newState = merge({}, newState, {transmission: [].concat(newState.transmission, [action.transmission])});
+      }
+      return newState;
+    case RECEIVE_DRIVETRAIN:
+      if(!stateHasValue(newState.drivetrain, action.drivetrain)) {
+        newState = merge({}, newState, {drivetrain: [].concat(newState.drivetrain, [action.drivetrain])});
       }
       return newState;
     default:
-    return newState;
+      return newState;
   }
 }
 

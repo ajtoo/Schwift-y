@@ -7,6 +7,7 @@ function SearchBar(props) {
     <header className="search-bar">
       <i className="material-icons search-icon">search</i>
       <input className="search-input" placeholder="Search for a make, model, or body style"/>
+      <p className="in-dev">FEATURE IN DEVELOPMENT</p>
       <OrderDropdown/>
     </header>
   );

@@ -18,6 +18,7 @@
   flex-direction: column;
   flex: 1;
 }
+
 .filters-button {
   background: $button-red;
   border: 1px solid $button-outline-red;
@@ -27,6 +28,14 @@
   margin: 10px 15px 20px 15px;
   height: 40px;
   width: 220px;
+}
+
+.filters-clear {
+  color: $button-outline-red;
+  cursor: pointer;
+  line-height: 27px;
+  margin-top: 15px;
+  padding: 13px 5px 10px 20px;
 }
 
 .filters-dropdown {
@@ -62,6 +71,12 @@
   flex: 1;
 }
 
+.filters-header {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+}
 
 .filters-scroll {
   display: flex;
@@ -73,7 +88,6 @@
   line-height: 27px;
   margin-top: 15px;
   padding: 13px 5px 10px 20px;
-  width: 227px;
 }
 
 /* ----- SliderGroup CSS ---- */
@@ -138,6 +152,8 @@
   border-bottom: 1px solid $form-outline;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  filter: opacity(20%);
   height: 70px; 
   width: 100%;
 }
@@ -148,7 +164,8 @@
 }
 
 .search-input{
-  width: 100%;
+  display: flex;
+  flex: 1;
 }
 
 .search-root {

@@ -7,25 +7,33 @@ import CarCard from './car_card';
 class SearchView extends React.Component {
   constructor(props) {
     super(props);
+    this.doSearch = this.doSearch.bind(this);
   }
 
   componentDidMount() {
     this.props.getAllCars();
   }
-
+  
+  doSearch() {
+    let searchState = this.props.search;
+    delete searchState.foundCars;
+    console.log(searchState);
+    return(
+      () => (this.props.runSearch(searchState, window.location.hash.slice(7).replace("-", " ")))
+    );
+  }
   render() {
     //TODO: dynamically pull search results
     let results = this.props.search.foundCars;
     let carList = [];
-    console.log(results);
     for(let i = 0; i < results.length; ++i) {
       carList.push(<CarCard key={i} car={results[i]}/>);
-    }
+  }
 
     return(
       <div className="search-root">
         <aside className="search-sidebar">
-          <SearchFilters/>
+          <SearchFilters cars={this.props.search.foundCars} search={this.doSearch} clearFilters={this.props.clearFilters}/>
         </aside>
         <main  className="search-view">
           <SearchBar/>
