@@ -9,14 +9,14 @@ class CarCard extends React.Component {
     return(
       <article className="car-card">
         <div className="car-card-heart"/>
-        <img src="http://res.cloudinary.com/ajtoo/image/upload/v1489995479/Challenger_kqd7zj.jpg"/>
-        <label className="car-card-name"><strong>Dodge</strong> Challenger R/T</label>
+        <img className="car-card-img" src={this.props.car.img_url}/>
+        <label className="car-card-name"><strong>{this.props.car.make}</strong> {this.props.car.model}</label>
         <section className="car-card-info">
           <div>
-            <label className="car-card-year">2014</label>
-            <label className="car-card-miles">13k miles</label>
+            <label className="car-card-year">{this.props.car.year}</label>
+            <label className="car-card-miles">{Math.round(this.props.car.mileage/1000)}k miles</label>
           </div>
-          <label className="car-card-price">$25500</label>
+          <label className="car-card-price">${this.props.car.price}</label>
         </section>
       </article>
     );

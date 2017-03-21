@@ -12,9 +12,14 @@ class SliderGroup extends React.Component {
     this.state = {
       value: 81
     };
+    this.updateValue = this.updateValue.bind(this);
   }
   updateValue(e) {
-    this.setState({value: e.target.value});
+    let value = e.target.value;
+    if(e.target.value < this.props.max) {
+      this.props.action(value);
+    }
+    this.setState({value: value});
   }
   render(){
     return(

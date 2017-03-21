@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link, hashHistory} from 'react-router';
 
-//TODO: change from <a> tags to 
 class MainNav extends React.Component {
   constructor(props) {
     super(props);

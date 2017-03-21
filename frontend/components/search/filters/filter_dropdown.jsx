@@ -4,6 +4,7 @@ class FilterDropdown extends React.Component{
   constructor(props) {
     super(props);
     this.showOptions = this.showOptions.bind(this);
+    this.addFilter = this.addFilter.bind(this);
   } 
 
   showOptions(e) {
@@ -22,7 +23,7 @@ class FilterDropdown extends React.Component{
   }
 
   addFilter(e) {
-    //TODO: add functionality to the filter buttons
+    this.props.action(e.target.value)
   }
 
   render() {

@@ -9,14 +9,17 @@ class SearchView extends React.Component {
     super(props);
   }
 
-  //TODO: search-bar becomes it's own Component
-  //TODO: side-bar form for filtering
-  //TODO: table for veiwing car cards
-    //TODO: make car cards
+  componentDidMount() {
+    this.props.getAllCars();
+  }
+
   render() {
-    let results = [];
-    for(let i = 0; i < 8; ++i) {
-      results.push(<CarCard/>);
+    //TODO: dynamically pull search results
+    let results = this.props.search.foundCars;
+    let carList = [];
+    console.log(results);
+    for(let i = 0; i < results.length; ++i) {
+      carList.push(<CarCard key={i} car={results[i]}/>);
     }
 
     return(
@@ -28,7 +31,7 @@ class SearchView extends React.Component {
           <SearchBar/>
           <div className="results">
             <section className="result-view">
-              {results}
+              {carList}
             </section>
           </div>
         </main>
