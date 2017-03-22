@@ -10,6 +10,10 @@ class User < ApplicationRecord
   has_many :favorites,
     foreign_key: :user_id
 
+  has_many :favorite_cars,
+    through: :favorites,
+    source: :car
+
   def reset_session_token!
     begin
       new_token = SecureRandom.urlsafe_base64

@@ -81,3 +81,21 @@
   font-size: 13px;
   margin-right: 20px;
 }
+
+.favorites {
+  display: flex;
+  background: white;
+  border: 1px solid rgba(190,190,190,.4);
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px 0 rgba(66,66,66,.1);
+  flex-direction: row;
+  font-family: $shift-font;
+  height: 40%;
+  justify-content: flex-start;
+  overflow: scroll;
+  position: absolute;
+  top: 49px;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1;
+}

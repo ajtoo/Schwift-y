@@ -22,3 +22,9 @@ export const getFavorite = (link) => (
     data: link
   })
 );
+
+export const findUserFavorites = (uid) => (
+  $.ajax({
+    url: 'api/favorites/' + uid
+  })
+);
