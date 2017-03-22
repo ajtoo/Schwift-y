@@ -7,6 +7,9 @@ class User < ApplicationRecord
   validates :email, :password_digest, :session_token, presence: true
   validates :email, :session_token, uniqueness: true
 
+  has_many :favorites,
+    foreign_key: :user_id
+
   def reset_session_token!
     begin
       new_token = SecureRandom.urlsafe_base64

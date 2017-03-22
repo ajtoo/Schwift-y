@@ -24,9 +24,14 @@ class SearchView extends React.Component {
   render() {
     let results = this.props.search.foundCars || [];
     let carList = [];
+
+    let uid = 0;     //the db uses 1s indexing, not 0s
+    if(this.props.session.currentUser)
+      uid = this.props.session.currentUser.id;
+
     for(let i = 0; i < results.length; ++i) {
-      carList.push(<CarCard key={i} car={results[i]}/>);
-  }
+      carList.push(<CarCard key={i} car={results[i]} uid={uid}/>);
+    }
 
     return(
       <div className="search-root">

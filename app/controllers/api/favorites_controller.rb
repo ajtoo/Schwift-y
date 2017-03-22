@@ -1,10 +1,18 @@
 class Api::FavoritesController < ApplicationController
   def create
-    @bench = Bench.create(user_id: params[:user_id], car_id: params[:car_id])
-    
+    if @favorite = Favorite.create(user_id: params[:user_id], car_id: params[:car_id])
+      render json: {}, status: 200
+    else
+      render json: {}
+    end
   end
 
+  def show
+      render json: Favorite.find_by(user_id: params[:user_id], car_id: params[:car_id]).to_json
+  end
   def destroy
-    @bench = Bench.destroy!(user_id: params[:user_id], car_id: params[:car_id])
+    to_destroy = Favorite.find_by(user_id: params[:user_id], car_id: params[:car_id])
+    Favorite.destroy(to_destroy.id)
+    render json: {}.to_json
   end
 end

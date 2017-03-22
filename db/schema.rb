@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322184245) do
+ActiveRecord::Schema.define(version: 20170322201110) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20170322184245) do
     t.integer  "car_id",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "car_id"], name: "index_favorites_on_user_id_and_car_id", unique: true, using: :btree
   end
 
   create_table "users", force: :cascade do |t|
