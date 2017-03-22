@@ -17,7 +17,7 @@ class Api::CarsController < ApplicationController
   def getCarsWithParams(tags, location)
     whereStr = composeWhereStr(tags)
     #TODO: include location and max values
-    if !whereStr.empty?
+    if whereStr && !whereStr.empty?
       Car.find_by_sql([
         "
         SELECT 
