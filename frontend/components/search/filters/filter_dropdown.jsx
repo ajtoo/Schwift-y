@@ -10,8 +10,7 @@ class FilterDropdown extends React.Component{
 
   showOptions(e) {
     let dropdown = document.querySelector(`#${this.props.title.replace(" ", "-")}`);
-
-    //give make dropdown visible & apply height to bump other items down
+    
     if(dropdown.style.height !== "auto") {
       dropdown.style.height = "auto";
       dropdown.style.display = "block";
@@ -22,7 +21,7 @@ class FilterDropdown extends React.Component{
   }
 
   addFilter(e) {
-    //TODO: add click to remove filter
+    //TODO: add click to remove filter (ALSO DELETE CHECKMARK)
     console.log("adding filter")
     if(!e.target.textContent.includes("\u2713")) {
       this.props.action(e.target.textContent);

@@ -16,7 +16,7 @@ function SearchFilters(props) {
 function FilterScrollView(props) {
   //TODO: possibly make filter options dynamically determined
   let bodyOptions = ["Convertible", "Coupe", "Hatchback", "SUV", "Sedan", "Truck", "Van", "Wagon"];
-  let makeOptions = ["Acura", "Audi", "BMW", "Cadillac", "Chevorlet", "Chrysler", "Dodge", "FIAT", "Ford", "Honda", "Hyundai", "Infiniti", "Jaguar", "Jeep", "Kia", "Land Rover", "Lexus", "Lincoln", "MINI", "Mazda", "Mercedes-Benz", "Mitsubishi", "Nissan", "Porsche", "Subaru", "Tesla", "Toyota", "Volkswagon", "Volvo"];
+  let makeOptions = ["Acura", "Audi", "BMW", "Cadillac", "Chevrolet", "Chrysler", "Dodge", "FIAT", "Ford", "Honda", "Hyundai", "Infiniti", "Jaguar", "Jeep", "Kia", "Land Rover", "Lexus", "Lincoln", "MINI", "Mazda", "Mercedes-Benz", "Mitsubishi", "Nissan", "Porsche", "Subaru", "Tesla", "Toyota", "Volkswagon", "Volvo"];
   let transmissionOptions = ["Automatic", "CVT", "Manual"];
   let drivetrainOptions = ["AWD", "4WD", "FWD", "RWD"];
   return(
