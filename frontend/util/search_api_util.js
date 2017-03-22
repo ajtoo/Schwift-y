@@ -9,7 +9,7 @@ export const search = (searchTags, location) => {
   return (
     $.ajax({
       url: 'api/cars',
-      data: params
+      data: {search: params}
     })
   ); 
 }

@@ -17,14 +17,12 @@ class SearchView extends React.Component {
   doSearch() {
     let searchState = this.props.search;
     delete searchState.foundCars;
-    console.log(searchState);
     return(
-      () => (this.props.runSearch(searchState, window.location.hash.slice(7).replace("-", " ")))
+      this.props.runSearch(searchState, window.location.hash.slice(7).replace("-", " "))
     );
   }
   render() {
-    //TODO: dynamically pull search results
-    let results = this.props.search.foundCars;
+    let results = this.props.search.foundCars || [];
     let carList = [];
     for(let i = 0; i < results.length; ++i) {
       carList.push(<CarCard key={i} car={results[i]}/>);
