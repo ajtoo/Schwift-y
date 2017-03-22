@@ -19,6 +19,7 @@ const Root = ({store}) => (
           <Route path="San-Diego"/>
           <Route path="Washington-DC"/>
         </Route>
+        <Route path="car/:id"/>
         <Route path="login" component={SessionFormContainer}/>
         <Route path="logout" onEnter={() => logout()(store.dispatch).then(() => hashHistory.push('/cars')) }/>
       </Route>

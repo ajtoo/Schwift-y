@@ -13,28 +13,28 @@ class Api::CarsController < ApplicationController
     end
   end
 
-  private
-  def getCarsWithParams(tags, location)
-    whereStr = composeWhereStr(tags)
-    #TODO: include location and max values
-    if whereStr && !whereStr.empty?
-      Car.find_by_sql([
-        "
-        SELECT 
-          *
-        FROM cars
-        WHERE 
-          #{whereStr}
-        "
-      ])
-    else
-      Car.all
-    end
+  def show
+    
   end
 
-
-
   private
+
+  def getCarsWithParams(tags, location)
+    whereInStr = composeWhereStr(tags) || ""
+    #TODO: include location
+    whereInStr.concat(" AND ") unless whereInStr.empty?
+    queryStr = whereInStr + "cars.mileage <= #{tags[:maxMiles]}" + " AND cars.price <= #{tags[:maxPrice]}"
+    # queryStr.concat(" AND cars.location LIKE #{location}") unless location.empty?
+    Car.find_by_sql([
+      "
+      SELECT 
+        *
+      FROM cars
+      WHERE 
+        #{queryStr}
+      "
+    ])
+  end
 
   def composeWhereStr(tagObj)
     whereStr = ""

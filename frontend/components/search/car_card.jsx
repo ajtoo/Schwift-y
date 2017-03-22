@@ -3,6 +3,7 @@ import React from 'react';
 class CarCard extends React.Component {
   constructor(props) {
     super(props);
+    this.gotoShow = this.gotoShow.bind(this);
   }
 
   toggleHeart(e) {
@@ -12,11 +13,18 @@ class CarCard extends React.Component {
     } else {
       e.target.removeAttribute('style');
     }
+    e.stopPropagation();
+  }
+
+  gotoShow(e) {
+    //TODO: redirect
+    // window.location
+    console.log("car ID: ", this.props.car.id);
   }
 
   render() {
     return(
-      <article className="car-card">
+      <article onClick={this.gotoShow} className="car-card">
         <div onClick={this.toggleHeart} className="car-card-heart"/>
         <img className="car-card-img" src={this.props.car.img_url}/>
         <label className="car-card-name"><strong>{this.props.car.make}</strong> {this.props.car.model}</label>
