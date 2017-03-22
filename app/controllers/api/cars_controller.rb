@@ -14,7 +14,8 @@ class Api::CarsController < ApplicationController
   end
 
   def show
-    
+    @car = Car.find(params[:id])
+    render json: @car.to_json
   end
 
   private
@@ -57,4 +58,3 @@ class Api::CarsController < ApplicationController
     (tagArray.map {|item| "'" + item.upcase + "'"}).join(", ") if tagArray.is_a?(Array)
   end
 end
-#  getStringForQuery(["asdf", "GOGOGO"])

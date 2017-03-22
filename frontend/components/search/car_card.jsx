@@ -1,4 +1,5 @@
 import React from 'react';
+import {hashHistory} from 'react-router';
 
 class CarCard extends React.Component {
   constructor(props) {
@@ -20,6 +21,7 @@ class CarCard extends React.Component {
     //TODO: redirect
     // window.location
     console.log("car ID: ", this.props.car.id);
+    hashHistory.push(`car/${this.props.car.id}`)
   }
 
   render() {
