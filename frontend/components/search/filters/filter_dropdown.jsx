@@ -25,7 +25,6 @@ class FilterDropdown extends React.Component{
     console.log("adding filter")
     if(!e.target.textContent.includes("\u2713")) {
       this.props.action(e.target.textContent);
-      e.target.textContent = e.target.textContent + " \u2713";
     }
   }
 
@@ -43,9 +42,14 @@ class FilterDropdown extends React.Component{
   }
 
   render() {
-    let options = this.props.options.map((option, i) => (
-      <li onClick={this.addFilter} className="filters-dropdown-option" key={i}>{option}</li>
-    ));
+    let options = this.props.options.map((option, i) => {
+      let checkMark = this.searchHasTag(option) ? " \u2713" : "";
+      return(
+      <li onClick={this.addFilter} className="filters-dropdown-option" key={i}>
+        {option}{checkMark}
+      </li>
+      );
+    });
     return(
       <fieldset className="filters-dropdown">
         <label onClick={this.showOptions} className="filter-label">{this.props.title}</label>

@@ -4,6 +4,7 @@ import {Router, Route, Redirect, IndexRoute, IndexRedirect, hashHistory} from 'r
 import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import SearchViewContainer from './search/search_container';
+import CarDetailContainer from './detail/car_detail_container';
 import {logout} from '../actions/session_actions';
 
 const Root = ({store}) => (
@@ -19,6 +20,7 @@ const Root = ({store}) => (
           <Route path="San-Diego"/>
           <Route path="Washington-DC"/>
         </Route>
+        <Route path="car/:id" component={CarDetailContainer}/>
         <Route path="login" component={SessionFormContainer}/>
         <Route path="logout" onEnter={() => logout()(store.dispatch).then(() => hashHistory.push('/cars')) }/>
       </Route>

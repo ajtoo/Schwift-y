@@ -37,6 +37,11 @@ class SessionForm extends React.Component {
     this.props.login(this.state).then(() => this.props.router.push("/"));
   }
 
+  demoLogin(e) {
+    e.preventDefault();
+    this.props.login({email: "demo@gmail.com", password: "1234567890"}).then(() => this.props.router.push("/"));
+  }
+
   handleSignUp(e) {
     e.preventDefault();
     this.props.signup(this.state).then(() => this.props.router.push("/"));
@@ -46,12 +51,13 @@ class SessionForm extends React.Component {
     return(
       <div className="session-form-root">
         <h1 className="form-title">Get Schwifty!</h1>
-        <p className="demo"> [demo] email: demo@gmail.com, password: 1234567890 </p>
+        <p className="demo">{this.props.errors}</p>
         <form className="session-form">
           <input onChange={this.handleTextChange('email')} className="session-input" type="email" value={this.state.email} placeholder="Email"/>
           <input onChange={this.handleTextChange('password')} className="session-input" type="password" value={this.state.password} placeholder="Password"/>
           <div className="session-buttons">
             <button className="login-button" onClick={this.handleLogin.bind(this)}>Log In</button>
+            <button className="login-button" onClick={this.demoLogin.bind(this)}>Demo Log In</button>
             <button className="signup-button" onClick={this.handleSignUp.bind(this)}>Sign Up</button>
           </div>
         </form>

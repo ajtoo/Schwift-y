@@ -14,6 +14,19 @@ class SliderGroup extends React.Component {
     };
     this.updateValue = this.updateValue.bind(this);
   }
+
+  componentWillReceiveProps(nextProps) {
+    //TODO: refactor even more so that store links directly to the slider
+    let label = nextProps.label.toUpperCase();
+    if(label.includes("MAX MILEAGE")) {
+      let newMiles = nextProps.search.maxMiles/1000 > 81 ? 81 : nextProps.search.maxMiles/1000
+      this.setState({value: newMiles});
+    } else if(label.includes("MAX PRICE")) {
+      let newPrice = nextProps.search.maxPrice/1000 > 81 ? 81 : nextProps.search.maxPrice/1000
+      this.setState({value: newPrice});
+    }
+  }
+
   updateValue(e) {
     let value = e.target.value;
     if(e.target.value < this.props.max) {
@@ -21,6 +34,7 @@ class SliderGroup extends React.Component {
     }
     this.setState({value: value});
   }
+
   render(){
     return(
       <fieldset className="slider-group">

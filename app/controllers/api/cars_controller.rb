@@ -13,28 +13,29 @@ class Api::CarsController < ApplicationController
     end
   end
 
-  private
-  def getCarsWithParams(tags, location)
-    whereStr = composeWhereStr(tags)
-    #TODO: include location and max values
-    if !whereStr.empty?
-      Car.find_by_sql([
-        "
-        SELECT 
-          *
-        FROM cars
-        WHERE 
-          #{whereStr}
-        "
-      ])
-    else
-      Car.all
-    end
+  def show
+    @car = Car.find(params[:id])
+    render json: @car.to_json
   end
 
-
-
   private
+
+  def getCarsWithParams(tags, location)
+    whereInStr = composeWhereStr(tags) || ""
+    #TODO: include location
+    whereInStr.concat(" AND ") unless whereInStr.empty?
+    queryStr = whereInStr + "cars.mileage <= #{tags[:maxMiles]}" + " AND cars.price <= #{tags[:maxPrice]}"
+    # queryStr.concat(" AND cars.location LIKE #{location}") unless location.empty?
+    Car.find_by_sql([
+      "
+      SELECT 
+        *
+      FROM cars
+      WHERE 
+        #{queryStr}
+      "
+    ])
+  end
 
   def composeWhereStr(tagObj)
     whereStr = ""
@@ -57,4 +58,3 @@ class Api::CarsController < ApplicationController
     (tagArray.map {|item| "'" + item.upcase + "'"}).join(", ") if tagArray.is_a?(Array)
   end
 end
-#  getStringForQuery(["asdf", "GOGOGO"])
