@@ -94,7 +94,7 @@ class MainNav extends React.Component {
     let favoritesButton = "";
     if(this.props.loggedIn)
       favoritesButton = <li onClick={this.getFavoritesAndRerender.bind(this)} className="favorites-logo"><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>
-      
+    
     return(
     <nav className="top-nav">
       <ul className="left-pulled">
