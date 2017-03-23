@@ -11,6 +11,7 @@ class CarCard extends React.Component {
 
   componentWillMount() {
     FavoriteApi.getFavorite({user_id: this.props.uid, car_id: this.props.car.id}).then( (fav) => {
+      console.log(fav);
       if(fav) {
         let thisHeart = document.getElementById(`car-${fav.car_id}`);
         thisHeart.style.backgroundImage = 'url("https://res.cloudinary.com/ajtoo/image/upload/v1489615610/schwifty_icon_favorite_red_solid_adypax.png")';

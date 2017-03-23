@@ -8,17 +8,21 @@ class MainNav extends React.Component {
     super(props);
     this.selectItem = this.selectItem.bind(this);
     this.showFavorites = this.showFavorites.bind(this);
-    this.favoritesList = [];
+    this.state = {
+      favoritesList: []
+    };
   }
 
   componentWillMount() {
-    this.favoritesList = [];
-    for(let i = 0; i < this.props.user.favorite_cars.length; ++i) {
-      this.favoritesList.push(<CarCard key={i} car={this.props.user.favorite_cars[i]} uid={this.props.user.id}/>);
+    let favoritesList = [];
+    for(let i = 0; i < favoritesList.length; ++i) {
+      favoritesList.push(<CarCard key={i} car={favoritesList[i]} uid={this.props.user.id}/>);
     }
+    this.setState({favoritesList: favoritesList});
   }
 
   toggleDropdown() {
+    //TODO: at the onClick, chain this to a then 
     let dropdown = document.querySelector(".location-dropdown");
     if(dropdown.style.visibility !== "visible") {
       dropdown.style.visibility = "visible";
@@ -72,7 +76,25 @@ class MainNav extends React.Component {
       }
   }
 
+  getFavoritesAndRerender() {
+    //ultra hacky but necessary to meet deadline
+    //TODO: delete and replace with actual store modification
+    FavoriteApi.findUserFavorites(this.props.user.id).then((cars) => {
+      let favoritesList = [];
+      for(let i = 0; i < cars.length; ++i) {
+        favoritesList.push(<CarCard key={i} car={cars[i]} uid={this.props.user.id}/>);
+      }
+      this.setState({favoritesList: favoritesList});
+      setTimeout(this.showFavorites, 250);
+    });
+  }
+
   render() {
+    //protects my button from non-logged in users
+    let favoritesButton = "";
+    if(this.props.loggedIn)
+      favoritesButton = <li onClick={this.getFavoritesAndRerender.bind(this)} className="favorites-logo"><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>
+      
     return(
     <nav className="top-nav">
       <ul className="left-pulled">
@@ -96,10 +118,10 @@ class MainNav extends React.Component {
         </li>
       </ul>
       <header className="favorites">
-        {this.favoritesList}
+        {this.state.favoritesList}
       </header>
       <ul className="right-pulled">
-        <li onClick={this.showFavorites}><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>
+        {favoritesButton}
         <li><Link to={this.props.loggedIn ? "logout" : "login"}>{this.props.loggedIn ? "Log Out" : "Log In/Sign Up"}</Link></li>
       </ul>
     </nav>
