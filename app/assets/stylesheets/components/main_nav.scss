@@ -90,8 +90,10 @@
   box-shadow: 1px 1px 10px 0 rgba(66,66,66,.1);
   flex-direction: row;
   font-family: $shift-font;
-  height: 260px;
+  height: auto;
   justify-content: flex-start;
+  max-height: 50%;
+  min-height: 20%;
   overflow-x: scroll;
   position: absolute;
   top: 49px;

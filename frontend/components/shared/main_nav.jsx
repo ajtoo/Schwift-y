@@ -71,6 +71,11 @@ class MainNav extends React.Component {
     let target = document.querySelector(".favorites")
     if(target.style.visibility !== "visible") {
         target.style.visibility = "visible";
+        //disable clicking rest of page
+        let searchView = document.querySelector(".search-root")
+        searchView.style.pointerEvents = "none";
+        searchView.style.filter = "opacity(40%)";
+
       } else {
         // target.style.visibility = "hidden";
         location.reload();    //temporary hack-fix until reducer and store sync are up
@@ -93,8 +98,11 @@ class MainNav extends React.Component {
   render() {
     //protects my button from non-logged in users
     let favoritesButton = "";
-    if(this.props.loggedIn)
-      favoritesButton = <li onClick={this.getFavoritesAndRerender.bind(this)} className="favorites-logo"><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>
+    let testDrivesLink = "";
+    if(this.props.loggedIn) {
+      favoritesButton = <li onClick={this.getFavoritesAndRerender.bind(this)} className="favorites-logo"><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>;
+      testDrivesLink = <Link to="test-drives">View Test Drives</Link>
+    }
     
     return(
     <nav className="top-nav">
@@ -118,10 +126,11 @@ class MainNav extends React.Component {
           </ul>
         </li>
       </ul>
-      <header className="favorites">
+      <header className="favorites" onBlur={this.showFavorites}>
         {this.state.favoritesList}
       </header>
       <ul className="right-pulled">
+        {/*{testDrivesLink} //TODO: make dropdown like favorites for test drives*/}
         {favoritesButton}
         <li><Link to={this.props.loggedIn ? "logout" : "login"}>{this.props.loggedIn ? "Log Out" : "Log In/Sign Up"}</Link></li>
       </ul>

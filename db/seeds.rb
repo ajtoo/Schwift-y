@@ -9,7 +9,8 @@ c1 = Car.create(
   img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490125869/car1_oi0ag5.jpg",
   body: "Coupe",
   transmission: "Manual",
-  drivetrain: "RWD"
+  drivetrain: "RWD",
+  location: "Los Angeles"
 )
 
  c2 = Car.create(
@@ -21,7 +22,9 @@ c1 = Car.create(
   img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490125869/car2_o4qntk.jpg",
   body: "Coupe",
   transmission: "Manual",
-  drivetrain: "RWD"
+  drivetrain: "RWD",
+  location: "Sacramento"
+  
 )
 
 c3 = Car.create(
@@ -33,7 +36,8 @@ c3 = Car.create(
   img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490125869/car3_rp9btu.jpg",
   body: "Sedan",
   transmission: "Automatic",
-  drivetrain: "RWD"
+  drivetrain: "RWD",
+  location: "Los Angeles"
 )
 
 c4 = Car.create(
@@ -45,7 +49,8 @@ c4 = Car.create(
   img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490125869/car4_mfu1tn.jpg",
   body: "Coupe",
   transmission: "Automatic",
-  drivetrain: "RWD"
+  drivetrain: "RWD",
+  location: "Orange County"
 )
 
 c5 = Car.create(
@@ -57,7 +62,8 @@ c5 = Car.create(
   img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490125869/car5_iiusey.jpg",
   body: "Coupe",
   transmission: "Automatic",
-  drivetrain: "RWD"
+  drivetrain: "RWD",
+  location: "San Francisco"
 )
 
 c6 = Car.create(
@@ -69,7 +75,8 @@ c6 = Car.create(
   img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490125869/car6_pcrimg.jpg",
   body: "Coupe",
   transmission: "Manual",
-  drivetrain: "RWD"
+  drivetrain: "RWD",
+  location: "Los Angeles"
 )
 
 c7 = Car.create(
@@ -81,7 +88,8 @@ c7 = Car.create(
   img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490125870/car7_aqwhhz.jpg",
   body: "Coupe",
   transmission: "Manual",
-  drivetrain: "RWD"
+  drivetrain: "RWD",
+  location: "Sacramento"
 )
 
 c8 = Car.create(
@@ -93,7 +101,8 @@ c8 = Car.create(
   img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490123863/car8_iqbmgv.jpg",
   body: "SUV",
   transmission: "Automatic",
-  drivetrain: "AWD"
+  drivetrain: "AWD",
+  location: "Washington DC"
 )
 
 c9 = Car.create(
@@ -105,5 +114,14 @@ c9 = Car.create(
   img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490139925/car9_z1j72a.png",
   transmission: "Manual",
   drivetrain: "RWD",
-  body: "Coupe"
+  body: "Coupe",
+  location: "San Diego"
+)
+
+td1 = TestDrive.create(
+    date: "12/2/2013",
+    phone_number: "137-1234",
+    location: "1700 W Burbank Blvd, Burbank, CA", 
+    user_id: demo_user.id,
+    car_id: c9.id
 )

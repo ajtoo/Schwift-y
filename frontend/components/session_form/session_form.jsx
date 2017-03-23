@@ -53,8 +53,8 @@ class SessionForm extends React.Component {
         <h1 className="form-title">Get Schwifty!</h1>
         <p className="demo">{this.props.errors}</p>
         <form className="session-form">
-          <input onChange={this.handleTextChange('email')} className="session-input" type="email" value={this.state.email} placeholder="Email"/>
-          <input onChange={this.handleTextChange('password')} className="session-input" type="password" value={this.state.password} placeholder="Password"/>
+          <input onChange={this.handleTextChange('email')} className="session-input" type="email" value={this.state.email} placeholder="Email" onFocus={(e) => e.target.placeholder = ""} onBlur={(e) => e.target.placeholder = "Email"}/>
+          <input onChange={this.handleTextChange('password')} className="session-input" type="password" value={this.state.password} placeholder="Password" onFocus={(e) => e.target.placeholder = ""} onBlur={(e) => e.target.placeholder = "Password"}/>
           <div className="session-buttons">
             <button className="login-button" onClick={this.handleLogin.bind(this)}>Log In</button>
             <button className="login-button" onClick={this.demoLogin.bind(this)}>Demo Log In</button>

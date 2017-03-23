@@ -21,7 +21,11 @@ class CarDetail extends React.Component {
   }
 
   render() {
-    console.log(this.props.car)
+    let bookButton = ""
+    if(Boolean(this.props.session.currentUser))
+      bookButton = <button onClick={this.bookTestDrive}>Book Test Drive</button>
+    else
+     bookButton = <button onClick={this.bookTestDrive} disabled>Log In to Book a Test Drive</button>
     return(
       <div className="detail-root">
         <section className="detail-info">
@@ -44,9 +48,9 @@ class CarDetail extends React.Component {
             focused={this.state.focused} // PropTypes.bool
             onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
           />
-          <input id="drive-location" type="text" placeholder="Where should we bring the car?"/>
-          <input id="phone-number" type="tel" placeholder="Phone Number"/>
-          <button onClick={this.bookTestDrive}>Book Test Drive</button>
+          <input id="drive-location" type="text" placeholder="Where should we bring the car?" onFocus={(e) => e.target.placeholder = ""} onBlur={(e) => e.target.placeholder = "Where should we bring the car?"}/>
+          <input id="phone-number" type="tel" placeholder="Phone Number" onFocus={(e) => e.target.placeholder = ""} onBlur={(e) => e.target.placeholder = "Phone Number"}/>
+          {bookButton}
         </form>
       </div>
     );

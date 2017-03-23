@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170322201110) do
+ActiveRecord::Schema.define(version: 20170323213926) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170322201110) do
     t.string   "body",         null: false
     t.string   "drivetrain",   null: false
     t.string   "transmission", null: false
+    t.string   "location",     null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -35,6 +36,16 @@ ActiveRecord::Schema.define(version: 20170322201110) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id", "car_id"], name: "index_favorites_on_user_id_and_car_id", unique: true, using: :btree
+  end
+
+  create_table "test_drives", force: :cascade do |t|
+    t.date     "date",         null: false
+    t.string   "phone_number", null: false
+    t.string   "location",     null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id",      null: false
+    t.integer  "car_id",       null: false
   end
 
   create_table "users", force: :cascade do |t|

@@ -6,7 +6,10 @@
 .detail-image {
   display: flex;
   flex: 1;
+  max-height: 50%;
+  padding: 0 20%;
   height: auto;
+  box-sizing: border-box;
   width: 100%;
 }
 
@@ -15,11 +18,11 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 40%;
+  width: 65%;
 }
 
 .detail-label {
-  color: #323232;
+  color: $shift-dark-grey;
   font-size: 2em;
   font-weight: bold;
   margin-bottom: 5%;
@@ -57,19 +60,21 @@
   justify-content: space-around;
   padding: 20px;
   height: auto;
-  width: 60%;
+  width: 35%;
 }
 
 .test-drive-form #drive-location {
   border-bottom: 1px solid $underline-grey;
   text-align: center;
   margin: 40px;
+  padding: 5px;
   width: 480px;
 }
 .test-drive-form #phone-number {
   border-bottom: 1px solid $underline-grey;
   text-align: center;
   margin: 40px;
+  padding: 5px;
   width: 480px;
 }
 
@@ -79,6 +84,7 @@
   border: 1px solid $button-outline-red;
   border-radius: 5px;
   background: $button-red;
+  color: $shift-dark-grey;
   display: flex;
   font-size: 20px;
   height: 80px;

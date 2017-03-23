@@ -18,7 +18,7 @@ export const clearFilters = () => dispatch => (
 );
 
 export const search = (state, location) => dispatch => (
-  SearchApi.search(state, location).then(cars => dispatch(receiveAllCars(cars)))//TODO: actually search
+  SearchApi.search(state, location).then(cars => dispatch(receiveAllCars(cars)))
 );
 
 export const addPriceLimit = (limit) => dispatch => (
