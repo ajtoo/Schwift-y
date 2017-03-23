@@ -14,9 +14,9 @@
 }
 
 .detail-label {
-  font-size: 32px;
+  font-size: 2em;
   font-weight: bold;
-  margin: 20px 0;
+  margin-bottom: 5%;
 }
 
 .detail-root {
@@ -32,12 +32,13 @@
   display: flex;
   flex: 1;
   flex-direction: column;
+  font-size: 1em;
   height: 50%;
-  padding: 40px;
+  padding: 5% 8%;
 }
 
 .detail-spec {
-  margin: 10px 0;
+  margin: 0 0 3%;
 }
 
 .test-drive-form {
