@@ -1,3 +1,8 @@
+.SingleDatePicker {
+  width: 360px;
+  text-align: center;
+}
+
 .detail-image {
   display: flex;
   flex: 1;
@@ -14,12 +19,14 @@
 }
 
 .detail-label {
+  color: #323232;
   font-size: 2em;
   font-weight: bold;
   margin-bottom: 5%;
 }
 
 .detail-root {
+  color: $shift-grey;
   display: flex;
   flex-direction: row;
   flex: 1;
@@ -53,7 +60,13 @@
   width: 60%;
 }
 
-.test-drive-form input {
+.test-drive-form #drive-location {
+  border-bottom: 1px solid $underline-grey;
+  text-align: center;
+  margin: 40px;
+  width: 480px;
+}
+.test-drive-form #phone-number {
   border-bottom: 1px solid $underline-grey;
   text-align: center;
   margin: 40px;

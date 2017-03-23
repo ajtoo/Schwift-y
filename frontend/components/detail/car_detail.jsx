@@ -1,8 +1,23 @@
 import React from 'react';
+import {SingleDatePicker} from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
+import * as Moment from 'moment';
 
 class CarDetail extends React.Component {
   constructor(props) {
     super(props);
+    this.bookTestDrive = this.bookTestDrive.bind(this);
+    this.state = {
+      date: null,
+      focused: false
+    }
+  }
+
+  bookTestDrive(e) {
+    e.preventDefault()
+    let location = document.getElementById("drive-location").value;
+    let phone = document.getElementById("phone-number").value;
+    console.log(location, phone, this.state.date.format("MM/DD/YYYY"));
   }
 
   render() {
@@ -21,9 +36,17 @@ class CarDetail extends React.Component {
           </div>
         </section>
         <form className="test-drive-form">
-          <input type="text" placeholder="Where should we bring the car?"/>
-          <input type="date"/>
-          <button>Book Test Drive</button>
+          <SingleDatePicker
+            id="date-picker"
+            date={this.state.date} // momentPropTypes.momentObj or null
+            numberOfMonths={Number("1")}
+            onDateChange={date => this.setState({ date })} // PropTypes.func.isRequired
+            focused={this.state.focused} // PropTypes.bool
+            onFocusChange={({ focused }) => this.setState({ focused })} // PropTypes.func.isRequired
+          />
+          <input id="drive-location" type="text" placeholder="Where should we bring the car?"/>
+          <input id="phone-number" type="tel" placeholder="Phone Number"/>
+          <button onClick={this.bookTestDrive}>Book Test Drive</button>
         </form>
       </div>
     );
