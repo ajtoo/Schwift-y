@@ -45,42 +45,42 @@ export const addDrivetrain = drivetrain => dispatch => (
    dispatch(receiveDrivetrain(drivetrain))
 );
 
-export const receiveAllCars = (cars) => ({
+const receiveAllCars = (cars) => ({
   type: RECEIVE_CARS,
   cars
 });
 
-export const removeFilters = (toRemove) => ({
+const removeFilters = (toRemove) => ({
   type: REMOVE_FILTERS,
   target: toRemove
 });
 
-export const receivePriceLimit = (limit) => ({
+const receivePriceLimit = (limit) => ({
   type: RECEIVE_PRICE_LIMIT,
   limit
 });
 
-export const receiveMileLimit = (limit) => ({
+const receiveMileLimit = (limit) => ({
   type: RECEIVE_MILE_LIMIT,
   limit
 });
 
-export const receiveBodyStyle = (style) => ({
+const receiveBodyStyle = (style) => ({
   type: RECEIVE_BODY_STYLE,
   body: style
 });
 
-export const receiveMake = (make) => ({
+const receiveMake = (make) => ({
   type: RECEIVE_MAKE,
   make
 });
 
-export const receiveTransmission = (transmission) => ({
+const receiveTransmission = (transmission) => ({
   type: RECEIVE_TRANSMISSION,
   transmission
 });
 
-export const receiveDrivetrain = (drivetrain) => ({
+const receiveDrivetrain = (drivetrain) => ({
   type: RECEIVE_DRIVETRAIN,
   drivetrain
 });
