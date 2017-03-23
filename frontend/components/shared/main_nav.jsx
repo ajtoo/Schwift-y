@@ -72,7 +72,8 @@ class MainNav extends React.Component {
     if(target.style.visibility !== "visible") {
         target.style.visibility = "visible";
       } else {
-        target.style.visibility = "hidden";
+        // target.style.visibility = "hidden";
+        location.reload();    //temporary hack-fix until reducer and store sync are up
       }
   }
 

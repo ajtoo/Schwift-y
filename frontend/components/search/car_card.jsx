@@ -1,6 +1,7 @@
 import React from 'react';
 import {hashHistory} from 'react-router';
 import * as FavoriteApi from '../../util/favorites_api_util';
+import {getCar} from '../../actions/car_actions';
 
 class CarCard extends React.Component {
   constructor(props) {
@@ -9,9 +10,8 @@ class CarCard extends React.Component {
     this.toggleHeart = this.toggleHeart.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     FavoriteApi.getFavorite({user_id: this.props.uid, car_id: this.props.car.id}).then( (fav) => {
-      console.log(fav);
       if(fav) {
         let thisHeart = document.getElementById(`car-${fav.car_id}`);
         thisHeart.style.backgroundImage = 'url("https://res.cloudinary.com/ajtoo/image/upload/v1489615610/schwifty_icon_favorite_red_solid_adypax.png")';
@@ -34,7 +34,6 @@ class CarCard extends React.Component {
   }
 
   gotoShow(e) {
-    console.log("car ID: ", this.props.car.id);
     hashHistory.push(`car/${this.props.car.id}`)
   }
 
