@@ -66,7 +66,7 @@ c6 = Car.create(
   year: 2016,
   mileage: 1332,
   price: 61500,
-  img_url: "http://res.cloudinary.com/ajtoo/image/upload/v1490125869/car6_pcrimg.jpg",
+  img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490125869/car6_pcrimg.jpg",
   body: "Coupe",
   transmission: "Manual",
   drivetrain: "RWD"
@@ -78,7 +78,7 @@ c7 = Car.create(
   year: 2010,
   mileage: 63780,
   price: 15350,
-  img_url: "http://res.cloudinary.com/ajtoo/image/upload/v1490125870/car7_aqwhhz.jpg",
+  img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490125870/car7_aqwhhz.jpg",
   body: "Coupe",
   transmission: "Manual",
   drivetrain: "RWD"
