@@ -20,22 +20,23 @@ Schwifty is a full-stack web application inspired by Shift.  It utilizes Ruby on
  ![image of search page](./readme_images/default_region.png)
  
  The other regions apply a basic filter that searches cars only in that region via a simply database query.
-	def getCarsWithParams(tags, location)
-        whereInStr = composeWhereStr(tags) || ""
-        #TODO: include location
-        whereInStr.concat(" AND ") unless whereInStr.empty?
-        queryStr = whereInStr + "cars.mileage <= #{tags[:maxMiles]}" + " AND cars.price <= #{tags[:maxPrice]}"
-        queryStr.concat(" AND UPPER(cars.location) LIKE '#{location.upcase}'") unless location.empty?
-        Car.find_by_sql([
-          "
-          SELECT 
-            *
-          FROM cars
-          WHERE 
-            #{queryStr}
-          "
-        ])
-  	end
+ 
+ ```Ruby
+  def getCarsWithParams(tags, location)
+    whereInStr = composeWhereStr(tags) || ""
+    #TODO: include location
+    whereInStr.concat(" AND ") unless whereInStr.empty?
+    queryStr = whereInStr + "cars.mileage <= #{tags[:maxMiles]}" + " AND cars.price <= #{tags[:maxPrice]}"
+    queryStr.concat(" AND UPPER(cars.location) LIKE '#{location.upcase}'") unless location.empty?
+    Car.find_by_sql(["
+      SELECT 
+        *
+      FROM cars
+      WHERE 
+        #{queryStr}
+     "])
+  end
+```
 
 ### [car/:id]
 [car/:id]: https://schwifty.herokuapp.com/#/car/1
@@ -52,17 +53,18 @@ The sign in page was kept simple and clean. A demo login is provided for minimal
 
 ## Differences Between Shift.com and Schwifty
 
- Favorited Cars: Bound to user as opposed to cookie (or whatever the actual implementation is)
+ * Favorited Cars: Bound to user as opposed to cookie (or whatever the actual implementation is)
  Inspection Report/Ask questions: Skipped feature to limit project scope and finish in the allocated time
- Test Drive: No map in the background; text input does not have auto-locate feature
+ * Test Drive: No map in the background; text input does not have auto-locate feature
  Other Cars You Might Like: Skipped feature to limit project scope and finish in the allocated time
- Car View text: Some bits of text and information are moved around so that the 
+ * Car View text: Some bits of text and information are moved around so that the 
 
 ## Future Directions for the Project
 
 In addition to the features already implemented, I plan to continue work on this project.  The next steps for FresherNote are outlined below.
-### Car Detail
 
+### Car Detail
+It would have been nice to replicate the layout from the actual site. However, things like the secondary navbar attaching on scroll would have taken large amounts of time that I didn't have.
 
 ### Car Sale
 
