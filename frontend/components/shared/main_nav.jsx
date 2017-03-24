@@ -118,7 +118,7 @@ class MainNav extends React.Component {
       favoritesButton = <li onClick={this.getFavoritesAndRerender.bind(this)} className="favorites-logo"><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>;
       testDrivesLink = <li onClick={this.showTestDrives}>View Test Drives</li>
       for(let i in this.props.testDrives.cars) {
-        
+        testDrives.push(<TestDriveCard key={i}/>);
       }
     }
     
@@ -153,8 +153,23 @@ class MainNav extends React.Component {
         <li><Link to={this.props.loggedIn ? "logout" : "login"}>{this.props.loggedIn ? "Log Out" : "Log In/Sign Up"}</Link></li>
       </ul>
       <aside className="test-drives">
+        {testDrives.length ? testDrives : ""}
       </aside>
     </nav>
+    );
+  }
+}
+
+class TestDriveCard extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return(
+      <article className="test-drive">
+        asdf
+      </article>
     );
   }
 }

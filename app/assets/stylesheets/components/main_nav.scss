@@ -110,9 +110,11 @@
   box-shadow: 1px 1px 10px 0 rgba(66,66,66,.1);
   flex-direction: column;
   font-family: $shift-font;
-  height: 100%;
+  height: calc(100%-50px);
+  height: -webkit-calc(100% - 50px); /* google, safari */
+height: -moz-calc(100% - 50px); /* firefox */
   flex: 1;
-  justify-content: center;
+  justify-content: flex-start;
   left: 85%;
   overflow-y: scroll;
   position: absolute;
@@ -120,4 +122,11 @@
   visibility: hidden;
   width: 15%;
   z-index: 1;
+}
+
+.test-drive {
+  border-top: 1px solid $underline-grey;
+  border-bottom: 1px solid $underline-grey;
+  height: 20%;
+  width: auto;
 }
