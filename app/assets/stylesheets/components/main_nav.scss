@@ -101,3 +101,23 @@
   width: 100%;
   z-index: 1;
 }
+
+.test-drives {
+  display: flex;
+  background: white;
+  border: 1px solid rgba(190,190,190,.4);
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px 0 rgba(66,66,66,.1);
+  flex-direction: column;
+  font-family: $shift-font;
+  height: 100%;
+  flex: 1;
+  justify-content: center;
+  left: 85%;
+  overflow-y: scroll;
+  position: absolute;
+  top: 50px;
+  visibility: hidden;
+  width: 15%;
+  z-index: 1;
+}

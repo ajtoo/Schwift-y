@@ -14,4 +14,4 @@ const mapDispatchToProps = dispatch => ({
     deleteTestDrive: (ids) => dispatch(deleteTestDrive(ids))
 });
 
-export default connect(mapStateToProps)(MainNav);
+export default connect(mapStateToProps, mapDispatchToProps)(MainNav);

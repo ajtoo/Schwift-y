@@ -23,7 +23,6 @@ class MainNav extends React.Component {
   }
 
   toggleDropdown() {
-    //TODO: at the onClick, chain this to a then 
     let dropdown = document.querySelector(".location-dropdown");
     if(dropdown.style.visibility !== "visible") {
       dropdown.style.visibility = "visible";
@@ -72,6 +71,7 @@ class MainNav extends React.Component {
     let target = document.querySelector(".favorites")
     if(target.style.visibility !== "visible") {
         target.style.visibility = "visible";
+        
         //disable clicking rest of page
         let searchView = document.querySelector(".search-root")
         searchView.style.pointerEvents = "none";
@@ -97,16 +97,29 @@ class MainNav extends React.Component {
   }
 
   showTestDrives() {
-    console.log(this.props.testDrives);
+    this.props.getUserTestDrives(this.props.user.id).then(this.toggleTestDrives());
+  }
+
+  toggleTestDrives() {
+    let target = document.querySelector(".test-drives")
+    if(target.style.visibility !== "visible") {
+        target.style.visibility = "visible";
+      } else {
+        target.style.visibility = "hidden";
+      }
   }
 
   render() {
     //protects my button from non-logged in users
     let favoritesButton = "";
     let testDrivesLink = "";
+    let testDrives = [];
     if(this.props.loggedIn) {
       favoritesButton = <li onClick={this.getFavoritesAndRerender.bind(this)} className="favorites-logo"><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>;
       testDrivesLink = <li onClick={this.showTestDrives}>View Test Drives</li>
+      for(let i in this.props.testDrives.cars) {
+        
+      }
     }
     
     return(
@@ -139,6 +152,8 @@ class MainNav extends React.Component {
         {favoritesButton}
         <li><Link to={this.props.loggedIn ? "logout" : "login"}>{this.props.loggedIn ? "Log Out" : "Log In/Sign Up"}</Link></li>
       </ul>
+      <aside className="test-drives">
+      </aside>
     </nav>
     );
   }
