@@ -8,6 +8,7 @@ class MainNav extends React.Component {
     super(props);
     this.selectItem = this.selectItem.bind(this);
     this.showFavorites = this.showFavorites.bind(this);
+    this.showTestDrives = this.showTestDrives.bind(this);
     this.state = {
       favoritesList: []
     };
@@ -95,13 +96,17 @@ class MainNav extends React.Component {
     });
   }
 
+  showTestDrives() {
+    console.log(this.props.testDrives);
+  }
+
   render() {
     //protects my button from non-logged in users
     let favoritesButton = "";
     let testDrivesLink = "";
     if(this.props.loggedIn) {
       favoritesButton = <li onClick={this.getFavoritesAndRerender.bind(this)} className="favorites-logo"><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>;
-      testDrivesLink = <Link to="test-drives">View Test Drives</Link>
+      testDrivesLink = <li onClick={this.showTestDrives}>View Test Drives</li>
     }
     
     return(
@@ -130,7 +135,7 @@ class MainNav extends React.Component {
         {this.state.favoritesList}
       </header>
       <ul className="right-pulled">
-        {/*{testDrivesLink} //TODO: make dropdown like favorites for test drives*/}
+        {testDrivesLink}
         {favoritesButton}
         <li><Link to={this.props.loggedIn ? "logout" : "login"}>{this.props.loggedIn ? "Log Out" : "Log In/Sign Up"}</Link></li>
       </ul>

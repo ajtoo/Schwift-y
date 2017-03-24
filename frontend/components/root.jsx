@@ -5,7 +5,6 @@ import App from './app';
 import SessionFormContainer from './session_form/session_form_container';
 import SearchViewContainer from './search/search_container';
 import CarDetailContainer from './detail/car_detail_container';
-import TestDrives from './test_drives/test_drives';
 import {logout} from '../actions/session_actions';
 import {getCar} from '../actions/car_actions';
 
@@ -25,7 +24,6 @@ const Root = ({store}) => (
         <Route path="car/:id" component={CarDetailContainer} onEnter={() => getCar(Number(window.location.hash.slice(6)))(store.dispatch)}/>
         <Route path="login" component={SessionFormContainer}/>
         <Route path="logout" onEnter={() => logout()(store.dispatch).then(() => hashHistory.push('/cars')) }/>
-        <Route path="test-drives" component={TestDrives}/>
       </Route>
     </Router>
   </Provider>

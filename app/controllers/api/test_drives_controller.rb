@@ -26,10 +26,13 @@ class Api::TestDrivesController < ApplicationController
   def destroy
     test_drive = TestDrive.find_by(car_id: params[:id], user_id: params[:user_id])
     if test_drive
-      test_drive.destroy() 
-      render status: 202
+      if test_drive.destroy()
+        render json: test_drive.to_json, status: 200
+      else
+        render json: {}, status: 202
+      end
     else
-      render status: 204
+      render json: {}, status: 204
     end
   end
 end
