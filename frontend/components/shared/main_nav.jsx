@@ -16,10 +16,15 @@ class MainNav extends React.Component {
 
   componentWillMount() {
     let favoritesList = [];
+    console.log(this.props.testDrives);
     for(let i = 0; i < favoritesList.length; ++i) {
       favoritesList.push(<CarCard key={i} car={favoritesList[i]} uid={this.props.user.id}/>);
     }
     this.setState({favoritesList: favoritesList});
+  }
+
+  componentWillReceiveProps() {
+    console.log(this.props.testDrives);
   }
 
   toggleDropdown() {
@@ -110,6 +115,7 @@ class MainNav extends React.Component {
   }
 
   render() {
+    console.log("render nav");
     //protects my button from non-logged in users
     let favoritesButton = "";
     let testDrivesLink = "";
@@ -117,8 +123,8 @@ class MainNav extends React.Component {
     if(this.props.loggedIn) {
       favoritesButton = <li onClick={this.getFavoritesAndRerender.bind(this)} className="favorites-logo"><img src="https://res.cloudinary.com/ajtoo/image/upload/c_scale,w_19/v1489615610/icon_favorite_white_border_hollow.1To0g3rY_upkpwk.png"/></li>;
       testDrivesLink = <li onClick={this.showTestDrives}>View Test Drives</li>
-      for(let i in this.props.testDrives.cars) {
-        testDrives.push(<TestDriveCard key={i}/>);
+      for(let i in this.props.testDrives.drives) {
+        testDrives.push(<TestDriveCard key={i} uid={this.props.user.id} testDrive={this.props.testDrives.drives[i]} car={this.props.testDrives.cars[i]} delete={this.props.deleteTestDrive} getUserTestDrives={() => this.props.getUserTestDrives(this.props.user.id)}/>);
       }
     }
     
@@ -152,9 +158,9 @@ class MainNav extends React.Component {
         {favoritesButton}
         <li><Link to={this.props.loggedIn ? "logout" : "login"}>{this.props.loggedIn ? "Log Out" : "Log In/Sign Up"}</Link></li>
       </ul>
-      <aside className="test-drives">
+      <ul className="test-drives">
         {testDrives.length ? testDrives : ""}
-      </aside>
+      </ul>
     </nav>
     );
   }
@@ -163,13 +169,24 @@ class MainNav extends React.Component {
 class TestDriveCard extends React.Component {
   constructor(props) {
     super(props);
+    this.deleteTestDrive = this.deleteTestDrive.bind(this);
+  }
+
+  deleteTestDrive() {
+    this.props.delete({car_id: this.props.car.id, uid: this.props.uid}).then(this.props.getUserTestDrives);
   }
 
   render() {
+    console.log("render TDCard");
     return(
-      <article className="test-drive">
-        asdf
-      </article>
+      <li className="test-drive">
+        <i onClick={this.deleteTestDrive} className="test-drive-delete"><strong>x</strong></i>
+        <label>
+          <strong>{this.props.car.make} {this.props.car.model}</strong>
+          <p className="test-drive-date">Date: {this.props.testDrive.date}</p>
+        </label>
+        <img className="test-drive-image" src={this.props.car.img_url}/>
+      </li>
     );
   }
 }

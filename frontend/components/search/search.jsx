@@ -55,7 +55,7 @@ class SearchView extends React.Component {
           <SearchFilters cars={this.props.search.foundCars} search={this.doSearch} clearFilters={this.props.clearFilters}/>
         </aside>
         <main  className="search-view">
-          <SearchBar/>
+          {/*<SearchBar/>*/}
           <div className="results">
             <section className="result-view">
               {carList}

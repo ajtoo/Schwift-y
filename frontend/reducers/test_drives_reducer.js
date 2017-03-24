@@ -17,6 +17,18 @@ const TestDriveReducer = (state = _nullTestDrives, action) => {
       }
       newState = merge({}, {drives, cars})
       return newState;
+    case RECEIVE_TEST_DRIVE:
+      newState.drives.push(action.testDrive.info);
+      newState.cars.push(action.testDrive.car);
+      return newState;
+    case REMOVE_TEST_DRIVE:
+      if(action.testDrive) {
+        console.log("changing TDs state");
+        let i = newState.drives.findIndex((el) => (action.testDrive.user_id === el.user_id && action.testDrive.car_id === el.car_id))
+        newState.drives.splice(i, 1);
+        newState.cars.splice(i, 1);
+      }
+      return newState;
     default:
       return newState;
   }

@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import MainNav from './main_nav';
-import {getUserTestDrives} from '../../actions/test_drives_actions';
+import {getUserTestDrives, deleteTestDrive} from '../../actions/test_drives_actions';
 
 const mapStateToProps = state => ({
     loggedIn: Boolean(state.session.currentUser),
