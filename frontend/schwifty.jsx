@@ -15,8 +15,5 @@ document.addEventListener('DOMContentLoaded', () => {
         store = configureStore();
     }
 
-    //TODO: REMOVE TESTING STUFF
-    window.store = store;
-
     ReactDOM.render(<Root store={store}/>, root);
 });
