@@ -15,7 +15,7 @@ export const createTestDrive = (info) => (
 export const deleteTestDrive = (info) => (
   $.ajax({
     url: 'api/test_drives/' + info.car_id,
-    method: 'POST',
+    method: 'DELETE',
     data: {user_id: info.uid}
   })
 )

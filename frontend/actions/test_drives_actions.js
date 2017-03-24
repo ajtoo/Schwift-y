@@ -13,7 +13,7 @@ export const createUserTestDrive = (info) => dispatch => (
 );
 
 export const deleteTestDrive = (ids) => dispatch => (
-  TestDriveApi.deleteTestDrive(ids).then(deletedDrive => dispatch(removeTestDrive(deletedDrive)))
+  TestDriveApi.deleteTestDrive(ids)//.then(deletedDrive => dispatch(removeTestDrive(deletedDrive)))
 );
 
 const receiveTestDrives = (drivesInfo) => ({

@@ -9,17 +9,17 @@ class Api::TestDrivesController < ApplicationController
   end
 
   def create
-    td = TestDrive.create(
-          date: params[:info][:date],
+    td = TestDrive.new(
+          date: Date.strptime(params[:info][:date], "%m/%d/%Y"),
           phone_number: params[:info][:phone_number],
           location: params[:info][:location], 
           user_id: params[:info][:user_id],
           car_id: params[:info][:car_id]
         )
-    if td
-      render json: td.to_json, status: 202
+    if td.save
+      render json: {info: td, car: td.car}, status: 202
     else
-      render json: 422
+      render json: {}, status: 422
     end
   end
 

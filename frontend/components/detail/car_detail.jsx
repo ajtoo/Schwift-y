@@ -1,4 +1,5 @@
 import React from 'react';
+import {hashHistory} from 'react-router';
 import {SingleDatePicker} from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
 import * as Moment from 'moment';
@@ -17,7 +18,18 @@ class CarDetail extends React.Component {
     e.preventDefault()
     let location = document.getElementById("drive-location").value;
     let phone = document.getElementById("phone-number").value;
-    console.log(location, phone, this.state.date.format("MM/DD/YYYY"));
+    if(location && phone && this.state.date) {
+      console.log(this.state.date.format("MM/DD/YYYY"), )
+      this.props.create({
+        date: this.state.date.format("MM/DD/YYYY"),
+        phone_number: phone,
+        location: location,
+        user_id: this.props.session.currentUser.id,
+        car_id: this.props.car.id
+      }).then(() => {hashHistory.push("/")}, () => alert("Date has been taken, please re-select"));
+    } else {
+      alert("You must fill in all fields");
+    }
   }
 
   render() {
