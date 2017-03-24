@@ -1,9 +1,9 @@
 class Api::FavoritesController < ApplicationController
   def create
-    if @favorite = Favorite.create(user_id: params[:user_id], car_id: params[:car_id])
+    if Favorite.create(user_id: params[:user_id], car_id: params[:car_id])
       render json: {}, status: 200
     else
-      render json: {}
+      render json: 204
     end
   end
 

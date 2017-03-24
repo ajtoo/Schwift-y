@@ -25,6 +25,7 @@ const SearchReducer = (state = _nullSearch, action) => {
   switch(action.type) {
     case RECEIVE_CARS:
       newState = merge({}, newState, {foundCars: action.cars});
+      newState.foundCars = action.cars;
       return newState;
     case REMOVE_FILTERS:
       if(action.target === "all") {

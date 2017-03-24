@@ -11,7 +11,23 @@ class SearchView extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getAllCars();
+    if(window.location.hash.slice(7)) {
+      let searchState = this.props.search;
+      this.props.runSearch(searchState, window.location.hash.slice(7).replace("-", " "))
+    } else {
+      this.props.getAllCars();
+    }
+  }
+
+    componentWillReceiveProps(nextProps) {
+    if(this.props.location.pathname !== nextProps.location.pathname) {
+    if(window.location.hash.slice(7)) {
+      let searchState = this.props.search;
+      this.props.runSearch(searchState, window.location.hash.slice(7).replace("-", " "))
+    } else {
+      this.props.getAllCars();
+    }
+    }
   }
   
   doSearch() {

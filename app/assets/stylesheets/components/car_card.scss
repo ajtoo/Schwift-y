@@ -6,6 +6,7 @@
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  height: auto;
   justify-content: center;
   margin: -1px -1px 0 -1px;
   transition: all .2s ease-in-out;
@@ -37,6 +38,7 @@
 }
 
 .car-card-img {
+  height: auto;
   width: 100%;
 }
 .car-card-heart:hover {

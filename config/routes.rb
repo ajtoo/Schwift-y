@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :cars, only: [:index, :show]
     resources :favorites, only:[:create, :destroy, :show]
+    resources :test_drives, only: [:show, :create, :destroy]
   end
 end

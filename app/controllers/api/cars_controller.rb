@@ -25,7 +25,7 @@ class Api::CarsController < ApplicationController
     #TODO: include location
     whereInStr.concat(" AND ") unless whereInStr.empty?
     queryStr = whereInStr + "cars.mileage <= #{tags[:maxMiles]}" + " AND cars.price <= #{tags[:maxPrice]}"
-    # queryStr.concat(" AND cars.location LIKE #{location}") unless location.empty?
+    queryStr.concat(" AND UPPER(cars.location) LIKE '#{location.upcase}'") unless location.empty?
     Car.find_by_sql([
       "
       SELECT 
