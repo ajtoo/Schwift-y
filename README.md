@@ -61,7 +61,7 @@ The sign in page was kept simple and clean. A demo login is provided for minimal
 
 ## Future Directions for the Project
 
-In addition to the features already implemented, I plan to continue work on this project.  The next steps for FresherNote are outlined below.
+Though I will likely not revisit this project, it has been a good framework for polishing skills (particularly my CSS skills). Below are some features that I would have liked to implement if I had worked faster.
 
 ### Car Detail
 It would have been nice to replicate the layout from the actual site. However, things like the secondary navbar attaching on scroll would have taken large amounts of time that I didn't have.
