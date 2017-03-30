@@ -1,10 +1,10 @@
-# Schwifty
+# Schwift(y)
 
-[Schwifty live][heroku]
+[Schwift(y) live][heroku]
 
 [heroku]: https://schwifty.herokuapp.com/
 
-Schwifty is a full-stack web application inspired by Shift.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.  
+Schwift(y) is a full-stack web application inspired by Shift.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.  
 
 ## Features & Implementation
 
