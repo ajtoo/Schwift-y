@@ -24,7 +24,7 @@ c1 = Car.create(
   transmission: "Manual",
   drivetrain: "RWD",
   location: "Sacramento"
-  
+
 )
 
 c3 = Car.create(
@@ -106,22 +106,48 @@ c8 = Car.create(
 )
 
 c9 = Car.create(
-  make: "Rick's",
-  model: "Cruiser",
-  year: 2013,
-  mileage: 771983,
-  price: 6421125,
-  img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1490139925/car9_z1j72a.png",
+  make: "Mazda",
+  model: "MX-5 Miata",
+  year: 2016,
+  mileage: 4110,
+  price: 25700,
+  img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1491934116/car9_gw9mve.jpg",
   transmission: "Manual",
   drivetrain: "RWD",
   body: "Coupe",
   location: "San Diego"
 )
 
+c10 = Car.create(
+  make: "Fiat",
+  model: "Abarth 500",
+  year: 2015,
+  mileage: 5637,
+  price: 15350,
+  img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1491934355/car10_srpvfg.jpg",
+  transmission: "Automatic",
+  drivetrain: "FWD",
+  body: "Hatchback",
+  location: "San Diego"
+)
+
+c11 = Car.create(
+  make: "Mazda",
+  model: "CX-3 Touring",
+  year: 2016,
+  mileage: 12617,
+  price: 21000,
+  img_url: "https://res.cloudinary.com/ajtoo/image/upload/v1491934583/c11_vfjwo3.jpg",
+  transmission: "Automatic",
+  drivetrain: "FWD",
+  body: "SUV",
+  location: "San Diego"
+)
+
 td1 = TestDrive.create(
     date: "12/2/2013",
     phone_number: "137-1234",
-    location: "1700 W Burbank Blvd, Burbank, CA", 
+    location: "1700 W Burbank Blvd, Burbank, CA",
     user_id: demo_user.id,
     car_id: c9.id
 )
