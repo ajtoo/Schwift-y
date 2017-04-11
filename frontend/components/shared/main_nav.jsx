@@ -45,7 +45,7 @@ class MainNav extends React.Component {
       this.toggleDropdown();
       if("cars" !== window.location.hash.slice(2))
         hashHistory.push("cars");
-    } 
+    }
     else{
       dropdownSelection.innerHTML = location.toString();
       this.toggleDropdown();
@@ -76,7 +76,7 @@ class MainNav extends React.Component {
     let target = document.querySelector(".favorites")
     if(target.style.visibility !== "visible") {
         target.style.visibility = "visible";
-        
+
         //disable clicking rest of page
         let searchView = document.querySelector(".search-root")
         searchView.style.pointerEvents = "none";
@@ -127,11 +127,11 @@ class MainNav extends React.Component {
         testDrives.push(<TestDriveCard key={i} uid={this.props.user.id} testDrive={this.props.testDrives.drives[i]} car={this.props.testDrives.cars[i]} delete={this.props.deleteTestDrive} getUserTestDrives={() => this.props.getUserTestDrives(this.props.user.id)}/>);
       }
     }
-    
+
     return(
     <nav className="top-nav">
       <ul className="left-pulled">
-        <li><a className="nav-logo" href="#">Schwifty</a></li>
+        <li><a className="nav-logo" href="#">Schwift(y)</a></li>
         <li onClick={this.toggleDropdown}>
           <span id="dropdown-selection">
             {this.getLocation()}

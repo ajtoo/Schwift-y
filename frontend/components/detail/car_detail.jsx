@@ -41,7 +41,9 @@ class CarDetail extends React.Component {
     return(
       <div className="detail-root">
         <section className="detail-info">
-          <img className="detail-image" src={this.props.car.img_url}/>
+          <div className="img-container">
+            <img className="detail-image" src={this.props.car.img_url}/>
+          </div>
           <div className="detail-specs">
             <label className="detail-label">{this.props.car.make} {this.props.car.model}</label>
             <p className="detail-spec">Mileage: {this.props.car.mileage}</p>

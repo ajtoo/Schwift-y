@@ -3,28 +3,38 @@
   text-align: center;
 }
 
+.img-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 75%;
+}
+
 .detail-image {
   display: flex;
   flex: 1;
-  max-height: 50%;
-  padding: 0 20%;
-  height: auto;
+  max-height: 671px;
+  max-width: 1071px;
+  height: 100%;
   box-sizing: border-box;
-  width: 100%;
+  width: auto;
 }
 
 .detail-info {
+  align-items: center;
   border-right: 1px solid $form-outline;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   width: 65%;
+  height: auto;
 }
 
 .detail-label {
   color: $shift-dark-grey;
   font-size: 2em;
   font-weight: bold;
+  padding-top: 2vh;
   margin-bottom: 5%;
 }
 
@@ -38,13 +48,16 @@
 
 .detail-specs {
   align-content: space-around;
-  background-color: $form-outline;
+  background-color: transparent;
   display: flex;
   flex: 1;
   flex-direction: column;
   font-size: 1em;
-  height: 50%;
-  padding: 5% 8%;
+  padding-top: 50px;
+  padding-left: 1em;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .detail-spec {
@@ -89,7 +102,7 @@
   font-size: 20px;
   height: 80px;
   margin: 20px;
-  width: 50%;
+  width: 45%;
 }
 
 .test-drive-form button:hover {
