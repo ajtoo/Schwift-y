@@ -19,7 +19,6 @@ class CarDetail extends React.Component {
     let location = document.getElementById("drive-location").value;
     let phone = document.getElementById("phone-number").value;
     if(location && phone && this.state.date) {
-      console.log(this.state.date.format("MM/DD/YYYY"), )
       this.props.create({
         date: this.state.date.format("MM/DD/YYYY"),
         phone_number: phone,

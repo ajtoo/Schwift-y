@@ -16,15 +16,10 @@ class MainNav extends React.Component {
 
   componentWillMount() {
     let favoritesList = [];
-    console.log(this.props.testDrives);
     for(let i = 0; i < favoritesList.length; ++i) {
       favoritesList.push(<CarCard key={i} car={favoritesList[i]} uid={this.props.user.id}/>);
     }
     this.setState({favoritesList: favoritesList});
-  }
-
-  componentWillReceiveProps() {
-    console.log(this.props.testDrives);
   }
 
   toggleDropdown() {
@@ -115,7 +110,6 @@ class MainNav extends React.Component {
   }
 
   render() {
-    console.log("render nav");
     //protects my button from non-logged in users
     let favoritesButton = "";
     let testDrivesLink = "";
@@ -177,7 +171,6 @@ class TestDriveCard extends React.Component {
   }
 
   render() {
-    console.log("render TDCard");
     return(
       <li className="test-drive">
         <i onClick={this.deleteTestDrive} className="test-drive-delete"><strong>x</strong></i>
