@@ -4,7 +4,7 @@
 
 [heroku]: https://schwifty.herokuapp.com/
 
-Schwift(y) is a full-stack web application inspired by Shift.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend.  
+Schwift(y) is a full-stack web application inspired by Shift.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend. This project was a two-week hack to see how fast I could build across the stack.
 
 ## Features & Implementation
 
@@ -20,6 +20,8 @@ Schwift(y) is a full-stack web application inspired by Shift.  It utilizes Ruby 
  ![image of search page](./readme_images/default_region.png)
  
  The other regions apply a basic filter that searches cars only in that region via a simply database query.
+ 
+ The following is a dynamically formed query that I used to respond to the search filters sent by the front-end
  
  ```Ruby
   def getCarsWithParams(tags, location)
@@ -41,7 +43,7 @@ Schwift(y) is a full-stack web application inspired by Shift.  It utilizes Ruby 
 ### [car/:id]
 [car/:id]: https://schwifty.herokuapp.com/#/car/1
 
-This car detail was unfortunately, a rushed build in order to complete the basic features I desired in this project. It displays basic info about the cars and allows you to book a test drive for that car.
+This car detail was a quick build in order to complete the features I desired in this project. It displays basic info about the cars and allows you to book a test drive for that car.
 
 
 ### [/login]
@@ -51,20 +53,12 @@ The sign in page was kept simple and clean. A demo login is provided for minimal
 
  ![image of search page](./readme_images/login.png)
 
-## Differences Between Shift.com and Schwifty
-
- * Favorited Cars: Bound to user as opposed to cookie (or whatever the actual implementation is)
- Inspection Report/Ask questions: Skipped feature to limit project scope and finish in the allocated time
- * Test Drive: No map in the background; text input does not have auto-locate feature
- Other Cars You Might Like: Skipped feature to limit project scope and finish in the allocated time
- * Car View text: Some bits of text and information are moved around so that the 
-
 ## Future Directions for the Project
 
 Though I will likely not revisit this project, it has been a good framework for polishing skills (particularly my CSS skills). Below are some features that I would have liked to implement if I had worked faster.
 
 ### Car Detail
-It would have been nice to replicate the layout from the actual site. However, things like the secondary navbar attaching on scroll would have taken large amounts of time that I didn't have.
+It would have been nice to replicate the exact layout from the actual site. However, things like the secondary navbar attaching on scroll would have taken large amounts of time that I didn't have.
 
 ### Car Sale
 
