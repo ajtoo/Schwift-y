@@ -21,12 +21,11 @@ Schwift(y) is a full-stack web application inspired by Shift.  It utilizes Ruby 
  
  The other regions apply a basic filter that searches cars only in that region via a simply database query.
  
- The following is a dynamically formed query that I used to respond to the search filters sent by the front-end
+ The following is a dynamically formed query used to filter cars entries to return to the front end. Tags coming in are sanitized in case someone manages to get between the front end and back end.
  
  ```Ruby
   def getCarsWithParams(tags, location)
     whereInStr = composeWhereStr(tags) || ""
-    #TODO: include location
     whereInStr.concat(" AND ") unless whereInStr.empty?
     queryStr = whereInStr + "cars.mileage <= #{tags[:maxMiles]}" + " AND cars.price <= #{tags[:maxPrice]}"
     queryStr.concat(" AND UPPER(cars.location) LIKE '#{location.upcase}'") unless location.empty?
