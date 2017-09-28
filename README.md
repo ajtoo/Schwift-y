@@ -1,9 +1,5 @@
 # Schwift(y)
 
-[Schwift(y) live][heroku]
-
-[heroku]: https://schwifty.herokuapp.com/
-
 Schwift(y) is a full-stack web application inspired by Shift.  It utilizes Ruby on Rails on the backend, a PostgreSQL database, and React.js with a Redux architectural framework on the frontend. This project was a two-week hack to see how fast I could build across the stack.
 
 ## Features & Implementation
@@ -13,7 +9,6 @@ Schwift(y) is a full-stack web application inspired by Shift.  It utilizes Ruby 
  I started with a limited subset of the site's features as my "goal" for replication. I then modified that to include features such as user authentication and user-bound database operations for booking test drives (as opposed to the actual site's implementation).
 
 ### [cars/:region]
-[cars/:region]: https://schwifty.herokuapp.com/#/cars
 
  The basic "region" is one that is location agnostic and allows you to search vehicles across all regions. These views support filtering of the available cars and is implemented through a dynamic SQL query (code snippet below).
  
@@ -40,13 +35,11 @@ Schwift(y) is a full-stack web application inspired by Shift.  It utilizes Ruby 
 ```
 
 ### [car/:id]
-[car/:id]: https://schwifty.herokuapp.com/#/car/1
 
 This car detail was a quick build in order to complete the features I desired in this project. It displays basic info about the cars and allows you to book a test drive for that car.
 
 
 ### [/login]
-[/login]: https://schwifty.herokuapp.com/#/login
 
 The sign in page was kept simple and clean. A demo login is provided for minimal hassle if someone wants to play with the site. Errors render above the login form in small, red error text. 
 
